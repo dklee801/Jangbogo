@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/custom.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/static/css/product-list-style.css" media="all">
+</head>
+
+<body>
+
+{% include "header.html" %}
+
+<div class="container">
+    <div class="mb20">
+        <form class="input-group" action="{% url 'jangbogo:recallListAll' %}">
+            <input type="text" placeholder="search for" class="form-control"><span class="input-group-btn">
+                <button type="submit" class="btn btn-search">Search</button>
+                </span>
+        </form>
+    <div class="tab_wrap">
+        <div class="tab_menu_container">
+            <button class="tab_menu_btn1 tab_menu_btn on" type="button">제품정보</button>
+            <button class="tab_menu_btn2 tab_menu_btn" type="button">회수.판매중지 정보</button>
+            <button class="tab_menu_btn3 tab_menu_btn" type="button">허위.과대광고 정보</button>
+        </div> <!-- tab_menu_container e -->
+
+        <div class="tab_box_container">
+            <div class="tab_box1 tab_box on">
+                <section class="col-xs-12 col-sm-6 col-md-12">
+                    <article class="search-result row">
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <a href="{% url 'jangbogo:recallListDetail' 1%}" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/people" alt="Lorem ipsum" /></a>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-2">
+                            <ul class="meta-search">
+                                <li><i class="glyphicon glyphicon-calendar"></i> <span>02/15/2014</span></li>
+                                <li><i class="glyphicon glyphicon-time"></i> <span>4:28 pm</span></li>
+                                <li><i class="glyphicon glyphicon-tags"></i> <span>People</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+                            <h3><a href="{% url 'jangbogo:recallListDetail' 1%}" title="">제품정보</a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>
+                            <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+                        </div>
+                        <span class="clearfix borda"></span>
+                    </article>
+
+                    <article class="search-result row">
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/food" alt="Lorem ipsum" /></a>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-2">
+                            <ul class="meta-search">
+                                <li><i class="glyphicon glyphicon-calendar"></i> <span>02/13/2014</span></li>
+                                <li><i class="glyphicon glyphicon-time"></i> <span>8:32 pm</span></li>
+                                <li><i class="glyphicon glyphicon-tags"></i> <span>Food</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-7">
+                            <h3><a href="{% url 'jangbogo:recallListDetail' 1%}" title="">제품정보</a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>
+                            <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+                        </div>
+                        <span class="clearfix borda"></span>
+                    </article>
+
+                    <article class="search-result row">
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/sports" alt="Lorem ipsum" /></a>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-2">
+                            <ul class="meta-search">
+                                <li><i class="glyphicon glyphicon-calendar"></i> <span>01/11/2014</span></li>
+                                <li><i class="glyphicon glyphicon-time"></i> <span>10:13 am</span></li>
+                                <li><i class="glyphicon glyphicon-tags"></i> <span>Sport</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-7">
+                            <h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>
+                            <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+                        </div>
+                        <span class="clearfix border"></span>
+                    </article>
+
+                </section>
+            </div>
+            <div class="tab_box2 tab_box">
+                <section class="col-xs-12 col-sm-6 col-md-12">
+                    <article class="search-result row">
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <a href="{% url 'jangbogo:recallListDetail' 1%}" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/people" alt="Lorem ipsum" /></a>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-2">
+                            <ul class="meta-search">
+                                <li><i class="glyphicon glyphicon-calendar"></i> <span>02/15/2014</span></li>
+                                <li><i class="glyphicon glyphicon-time"></i> <span>4:28 pm</span></li>
+                                <li><i class="glyphicon glyphicon-tags"></i> <span>People</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+                            <h3><a href="{% url 'jangbogo:recallListDetail' 1%}" title="">회수.판매중지 정보</a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>
+                            <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+                        </div>
+                        <span class="clearfix borda"></span>
+                    </article>
+
+                    <article class="search-result row">
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/food" alt="Lorem ipsum" /></a>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-2">
+                            <ul class="meta-search">
+                                <li><i class="glyphicon glyphicon-calendar"></i> <span>02/13/2014</span></li>
+                                <li><i class="glyphicon glyphicon-time"></i> <span>8:32 pm</span></li>
+                                <li><i class="glyphicon glyphicon-tags"></i> <span>Food</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-7">
+                            <h3><a href="{% url 'jangbogo:recallListDetail' 1%}" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>
+                            <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+                        </div>
+                        <span class="clearfix borda"></span>
+                    </article>
+
+                    <article class="search-result row">
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/sports" alt="Lorem ipsum" /></a>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-2">
+                            <ul class="meta-search">
+                                <li><i class="glyphicon glyphicon-calendar"></i> <span>01/11/2014</span></li>
+                                <li><i class="glyphicon glyphicon-time"></i> <span>10:13 am</span></li>
+                                <li><i class="glyphicon glyphicon-tags"></i> <span>Sport</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-7">
+                            <h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>
+                            <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+                        </div>
+                        <span class="clearfix border"></span>
+                    </article>
+
+                </section>
+            </div>
+            <div class="tab_box3 tab_box">
+                <section class="col-xs-12 col-sm-6 col-md-12">
+                    <article class="search-result row">
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <a href="{% url 'jangbogo:recallListDetail' 1%}" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/people" alt="Lorem ipsum" /></a>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-2">
+                            <ul class="meta-search">
+                                <li><i class="glyphicon glyphicon-calendar"></i> <span>02/15/2014</span></li>
+                                <li><i class="glyphicon glyphicon-time"></i> <span>4:28 pm</span></li>
+                                <li><i class="glyphicon glyphicon-tags"></i> <span>People</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+                            <h3><a href="{% url 'jangbogo:recallListDetail' 1%}" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>
+                            <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+                        </div>
+                        <span class="clearfix borda"></span>
+                    </article>
+
+                    <article class="search-result row">
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/food" alt="Lorem ipsum" /></a>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-2">
+                            <ul class="meta-search">
+                                <li><i class="glyphicon glyphicon-calendar"></i> <span>02/13/2014</span></li>
+                                <li><i class="glyphicon glyphicon-time"></i> <span>8:32 pm</span></li>
+                                <li><i class="glyphicon glyphicon-tags"></i> <span>Food</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-7">
+                            <h3><a href="{% url 'jangbogo:recallListDetail' 1%}" title="">허위.과대광고 정보</a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>
+                            <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+                        </div>
+                        <span class="clearfix borda"></span>
+                    </article>
+
+                    <article class="search-result row">
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/sports" alt="Lorem ipsum" /></a>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-2">
+                            <ul class="meta-search">
+                                <li><i class="glyphicon glyphicon-calendar"></i> <span>01/11/2014</span></li>
+                                <li><i class="glyphicon glyphicon-time"></i> <span>10:13 am</span></li>
+                                <li><i class="glyphicon glyphicon-tags"></i> <span>Sport</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-7">
+                            <h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>
+                            <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+                        </div>
+                        <span class="clearfix border"></span>
+                    </article>
+
+                </section>
+            </div>
+        </div> <!-- tab_box_container e -->
+    </div> <!-- tab_wrap e -->
+</div>
+</div>
+{% include "footer.html" %}
+<script src="/static/js/product-list.js"></script>
+</body>
+</html>
