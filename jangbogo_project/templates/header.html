@@ -1,0 +1,16 @@
+<header>
+    <nav class="navbar navbar-default top-bar affix" data-spy="affix" data-offset-top="250" >
+        <div class="container" >
+            <div id="navbar-collapse" class="collapse navbar-collapse">
+                <a href="http://localhost:8000/" class="navbar-brand"><img id="logo-img" src="/static/img/logo_h.png"/></a>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/about_us/">About Us</a></li>
+                    <li><a href="{% url 'users:noticeBoard' 1 %}">Bucket</a></li>
+                    <li><a href="{% url 'users:loginRegister' %}">Log In</a></li>
+                </ul>
+            </div>
+            <!- /.navbar-collapse ->
+        </div>
+        <!- /.container-fluid ->
+    </nav>
+</header>

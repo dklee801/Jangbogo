@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 def logIn(request):
@@ -10,8 +10,11 @@ def logOut(request):
 def signUp(request):
     return true
 
+def loginRegister(request):
+    return render(request, 'users/login_register.html')
+
 def userInfo(request, user_id):
-    return true
+    return render(request, 'users/mypage.html')
 
 def hasProduct(request, user_id):
     return true
@@ -23,4 +26,4 @@ def deleteProduct(request, user_id, product_id):
     return true
 
 def noticeBoard(request, user_id):
-    return true
+    return render(request, 'jangbogo/notice_board.html')

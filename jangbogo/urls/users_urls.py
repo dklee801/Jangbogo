@@ -7,6 +7,7 @@ urlpatterns = [
     path('login/', users_views.logIn, name="logIn"), #회원로그인
     path('logout/', users_views.logOut, name="logOut"), #로그아웃
     path('singup/', users_views.signUp, name="signUp"), #회원가입
+    path('login_register/', users_views.loginRegister, name="loginRegister"), #회원가입
     path('<int:user_id>/', users_views.userInfo, name="userInfo"), #회원정보 조회
     path('<int:user_id>/has_product/', users_views.hasProduct, name="hasProduct"), #구매,보유 목록 조회
     path('<int:user_id>/<int:product_id>/add_product/', users_views.addProduct, name="addProduct"), #구매,보유 목록 추가
