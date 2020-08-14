@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 # Create your models here.
 class User(models.Model):
@@ -16,8 +17,9 @@ class Purchase(models.Model):
     pur_name = models.CharField('제품명', max_length=40)
     pur_jejo_num = models.CharField('제품제조번호', max_length=15)
     pur_company = models.CharField('제조업체명', max_length=40)
-    pur_date = models.DateTimeField('구매일자', auto_now_add=True)
-    pur_jejodate = models.DateTimeField('제조일자', auto_now_add=True)
+    pur_date = models.DateTimeField('구매일자', default=datetime.datetime.now())
+    pur_jejodate = models.DateTimeField('제조일자', default=datetime.datetime.now())
+    pur_expire_period = models.IntegerField('유통기한', default=12)
 
     def __str__(self):
-        return self.pur_user
+        return self.pur_name

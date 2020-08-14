@@ -9,130 +9,85 @@
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="/static/css/shards-dashboards.1.1.0.min.css">
     <link rel="stylesheet" href="/static/css/extras.1.1.0.min.css" integrity="">
     <link href="/static/css/custom.css" rel="stylesheet">
+    <link href="/static/css/notice_board.css" rel="stylesheet">
 </head>
 <body class="h-100">
 {% include "header.html" %}
 
 <div class="notice-board">
-
 <div class="container">
     <div class="page-header row no-gutters py-4">
-        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
-            <!-- <span class="text-uppercase page-subtitle">Overview</span>-->
-             <h3 class="page-title">내 식품 안전 체크 리스트</h3>
-         </div>
+             <h1 class="title">내 식품 안전 체크 리스트</h1>
      </div>
     <div class="">
         <div class="col">
-            <div class="card card-small mb-4" style="border: 3px solid red; float: left; width: 32%; margin:0.66%; height: 300px; overflow:auto">
+            <div class="card card-small mb-4" id="recall-list-container" >
                 <div class="card-header border-bottom">
-                    <h6 class="m-0" align="center">유해 제품 리스트</h6>
+                    <h4 class="m-0" align="center">회수.판매중지 제품 리스트</h4>
                 </div>
                 <div class="card-body p-0 pb-3 text-center">
                     <table class="table mb-0">
                         <thead class="bg-light">
                         <tr>
-                            <th scope="col" class="border-0">#</th>
+                            <th scope="col" class="border-0">제품타입</th>
                             <th scope="col" class="border-0">제품명</th>
                             <th scope="col" class="border-0">업체명</th>
+                            <th scope="col" class="border-0">회수명령일자</th>
+                            <th scope="col" class="border-0">회수방법</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="recall-tbody">
                         <tr>
                             <td>1</td>
                             <td>Ali</td>
                             <td>Kerry</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Clark</td>
-                            <td>Angela</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Jerry</td>
-                            <td>Nathan</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Colt</td>
-                            <td>Angela</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div class="card card-small mb-4" style="border: 3px solid orange; float: left; width: 32%; margin:0.66%; height: 300px; overflow:auto">
+            <div class="card card-small mb-4" id="false-ad-list-container"">
                 <div class="card-header border-bottom">
-                    <h6 class="m-0" align="center">허위 광고 리스트</h6>
+                    <h4 class="m-0" align="center">허위 광고 리스트</h4>
                 </div>
                 <div class="card-body p-0 pb-3 text-center">
                     <table class="table mb-0">
                         <thead class="bg-light">
                         <tr>
-                            <th scope="col" class="border-0">#</th>
                             <th scope="col" class="border-0">제품명</th>
                             <th scope="col" class="border-0">업체명</th>
+                            <th scope="col" class="border-0">행정처분일자</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="false-ad-tbody">
                         <tr>
                             <td>1</td>
                             <td>Ali</td>
                             <td>Kerry</td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Clark</td>
-                            <td>Angela</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Jerry</td>
-                            <td>Nathan</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Colt</td>
-                            <td>Angela</td>
-                        </tr>
+
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div class="card card-small mb-4" style="border: 3px solid gold; float: left; width: 32%; margin:0.66%; height: 300px; overflow:auto">
+            <div class="card card-small mb-4" >
                 <div class="card-header border-bottom">
-                    <h6 class="m-0" align="center">유통 점검 리스트</h6>
+                    <h4 class="m-0" align="center">유통 점검 리스트</h4>
                 </div>
                 <div class="card-body p-0 pb-3 text-center">
                     <table class="table mb-0">
                         <thead class="bg-light">
                         <tr>
-                            <th scope="col" class="border-0">#</th>
                             <th scope="col" class="border-0">제품명</th>
                             <th scope="col" class="border-0">업체명</th>
+                            <th scope="col" class="border-0">경과일수</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="expired-tbody">
                         <tr>
-                            <td>1</td>
                             <td>Ali</td>
                             <td>Kerry</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Clark</td>
-                            <td>Angela</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Jerry</td>
-                            <td>Nathan</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Colt</td>
-                            <td>Angela</td>
+                            <td>Kerry</td>
                         </tr>
                         </tbody>
                     </table>
@@ -142,17 +97,19 @@
     </div>
     <!-- End Default Light Table -->
     <!-- Default Dark Table -->
-    <div class="">
+</div>
+    <div class="has-product-container container" url="{% url 'users:hasProduct' 1 %}" >
         <div class="col">
-            <div class="card card-small overflow-hidden mb-4" style="border: 3px solid lightgreen; height: 500px; overflow:auto">
+            <div class="card card-big overflow-hidden mb-4" >
                 <div class="card-header border-bottom">
-                    <h6 class="m-0" align="center">My List</h6>
+                    <h4 class="m-0" align="center">보유/구매 제품 목록</h4>
+                    <a href="{% url 'jangbogo:recallListAll' %}" >추가</a>
                 </div>
                 <div class="card-body p-0 pb-3 text-center">
                     <table class="table mb-0">
                         <thead class="bg-light">
                         <tr>
-                            <th scope="col" class="border-bottom-0">#</th>
+                            <th scope="col" class="border-bottom-0">번호</th>
                             <th scope="col" class="border-bottom-0">제품명</th>
                             <th scope="col" class="border-bottom-0">업체명</th>
                             <th scope="col" class="border-bottom-0">구매일자</th>
@@ -160,85 +117,22 @@
                             <th scope="col" class="border-bottom-0">유통기한</th>
                         </tr>
                         </thead>
+                        {% for product in hasProductList%}
                         <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>Graham</td>
-                            <td>Brent</td>
-                            <td>Benin</td>
-                            <td>Ripabottoni</td>
-                            <td>1-512-760-9094</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Clark</td>
-                            <td>Angela</td>
-                            <td>Estonia</td>
-                            <td>Borghetto di Vara</td>
-                            <td>1-660-850-1647</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Wylie</td>
-                            <td>Joseph</td>
-                            <td>Korea, North</td>
-                            <td>Guelph</td>
-                            <td>325-4351</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Garth</td>
-                            <td>Clementine</td>
-                            <td>Indonesia</td>
-                            <td>Narcao</td>
-                            <td>722-8264</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Garth</td>
-                            <td>Clementine</td>
-                            <td>Indonesia</td>
-                            <td>Narcao</td>
-                            <td>722-8264</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>Garth</td>
-                            <td>Clementine</td>
-                            <td>Indonesia</td>
-                            <td>Narcao</td>
-                            <td>722-8264</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>Garth</td>
-                            <td>Clementine</td>
-                            <td>Indonesia</td>
-                            <td>Narcao</td>
-                            <td>722-8264</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td>Garth</td>
-                            <td>Clementine</td>
-                            <td>Indonesia</td>
-                            <td>Narcao</td>
-                            <td>722-8264</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td>karth</td>
-                            <td>Clementine</td>
-                            <td>Indonesia</td>
-                            <td>Narcao</td>
-                            <td>722-8264</td>
+                            <td>{{product.id}}</td>
+                            <td>{{product.pur_name}}</td>
+                            <td>{{product.pur_company}}</td>
+                            <td>{{product.pur_date|date:'Y-m-d'}}</td>
+                            <td>{{product.pur_jejodate|date:'Y-m-d'}}</td>
+                            <td>{{product.pur_expire_period}}</td>
                         </tr>
                         </tbody>
+                        {% endfor %}
                     </table>
                 </div>
             </div>
         </div>
-    </div>
     <!-- End Default Dark Table -->
 
 </div>
@@ -252,6 +146,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
 <script src="/static/js/extras.1.1.0.min.js"></script>
 <script src="/static/js/shards-dashboards.1.1.0.min.js"></script>
+<script src="/static/js/notice_board.js"></script>
 
 </body>
 </html>
