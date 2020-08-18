@@ -13,9 +13,10 @@
             <button type="button" class="togglebtn" onclick="login()">LOG IN</button>
             <button type="button" class="togglebtn" onclick="register()">REGISTER</button>
         </div>
-        <form id="login" action="{% url 'users:userInfo' 1%}" class="input-group">
-            <input type="text" class="input-field" placeholder="User name or Email" required>
-            <input type="password" class="input-field" placeholder="Enter Password" required>
+        <form id="login" action="{% url 'users:logIn'%}" class="input-group" method="post">
+            {% csrf_token %}
+            <input type="text" class="input-field" placeholder="User name or Email" name="username" required>
+            <input type="password" class="input-field" placeholder="Enter Password" name="password" required>
             <input type="checkbox" class="checkbox"><span>Remember Password</span>
             <button class="submit">Login</button>
         </form>

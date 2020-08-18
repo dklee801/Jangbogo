@@ -13,10 +13,23 @@ def getServiceKey():
 
 # Create your views here.
 def logIn(request):
-    return true
+    if request.method == 'POST':
+        user_id = request.POST.get('username')
+        user_pw = request.POST.get('password')
+
+        if user_id and user_pw:
+            user = User.objects.get(user_name=user_id)
+            request.session['user'] = user.id
+            return redirect('users:noticeBoard', user.id)
+    else:
+        pass
+
+    return render(request, 'users/login_register.html')
 
 def logOut(request):
-    return true
+    if request.session.get('user'):
+        del(request.session['user'])
+    return redirect('http://localhost:8000/')
 
 def signUp(request):
     return true
@@ -25,7 +38,35 @@ def loginRegister(request):
     return render(request, 'users/login_register.html')
 
 def userInfo(request, user_id):
-    return render(request, 'users/mypage.html')
+    user = User.objects.get(id=user_id)
+    return render(request, 'users/mypage.html', {'user':user})
+
+def userUpdate(request, user_id):
+    user = User.objects.get(id=user_id)
+    if request.method == 'POST':
+        user_password = request.POST.get('password')
+        user_email = request.POST.get('email')
+
+        if user_id and user_email:
+            user.user_password = user_password
+            user.user_email = user_email
+            user.save()
+            return redirect('users:userInfo', user.id)
+    else:
+        pass
+    return render(request, 'users/mypage.html', {'user':user})
+
+def userDelete(request, user_id):
+    user = User.objects.get(id=user_id)
+    if request.method == 'POST':
+        if user.user_password == request.POST.get("current_password2"):
+            user.delete()
+            del(request.session['user'])
+            return redirect('http://localhost:8000/')
+        else:
+            error_message = '이미 존재하는 이름입니다.'
+            return redirect('users:userInfo', user.id)
+
 
 def hasProduct(request, user_id):
     user = get_object_or_404(User, pk=user_id)
@@ -44,9 +85,12 @@ def deleteProduct(request, user_id, product_id):
     return true
 
 def noticeBoard(request, user_id):
-    user = get_object_or_404(User, pk=user_id)
-    hasProductList = user.purchase_set.all()
-    context = {
-        'hasProductList' : hasProductList,
-    }
-    return render(request, 'jangbogo/notice_board.html', context)
+    if request.session.get('user'):
+        user = get_object_or_404(User, pk=user_id)
+        hasProductList = user.purchase_set.all()
+        context = {
+            'hasProductList' : hasProductList,
+        }
+        return render(request, 'jangbogo/notice_board.html', context)
+    else:
+        return redirect('users:loginRegister')
