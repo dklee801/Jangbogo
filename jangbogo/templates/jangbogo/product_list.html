@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css" media="all">
     <link rel="stylesheet" type="text/css" href="/static/css/product-list-style.css" media="all">
 
@@ -15,10 +15,11 @@
 
 <div class="container">
     <div class="mb20">
-        <form class="input-group" id="search_key" action="{% url 'jangbogo:recallListAll' %}" search_key="{{search_key}}" parameters="{{parameters}}">
-            <input type="text" placeholder="search for" class="form-control"><span class="input-group-btn">
-            <button type="submit" class="btn btn-search">Search</button>
-                </span>
+        <form class="input-group" id="search_key" action="{% url 'jangbogo:productListSearch' %}" method="post" search_key="{{search_key}}" parameters="{{parameters}}">
+            {% csrf_token %}
+            <input type="text" placeholder="search for" class="form-control" name="keyword" value="{{search_key}}"><span class="input-group-btn">
+            <button type="submit" class="btn btn-search">SEARCH</button>
+            </span>
         </form>
     <div class="tab_wrap">
         <div class="tab_menu_container">
@@ -29,143 +30,67 @@
 
         <div class="tab_box_container">
             <div class="tab_box1 tab_box on">
-                    <div class="container">
-                        <div class="">
-                            <div class="col">
-                                <div class="card card-small mb-4" style="height: 600px; overflow:auto">
-                                    <div class="card-header border-bottom">
-                                        <h6 class="m-0" align="center">유해 제품 리스트</h6>
-                                    </div>
-                                    <div class="card-body p-0 pb-3 text-center">
-                                        <table class="table mb-0">
-                                            <thead class="bg-light">
-                                            <tr>
-                                                <th scope="col" class="border-0">제품명</th>
-                                                <th scope="col" class="border-0">업체명</th>
-                                                <th scope="col" class="border-0">유형</th>
-                                                <th scope="col" class="border-0">유통기한</th>
-                                                <th scope="col" class="border-0">고열량저영양식품여부</th>
-                                                <th scope="col" class="border-0">어린이기호식품품질인증여부</th>
-                                                <th scope="col" class="border-0">제조일자</th>
-                                                <th scope="col" class="border-0">구매일자</th>
-                                                <th scope="col" class="border-0">My Bucket에 추가하기</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody id="tbody_jepum">
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Ali</td>
-                                                <td>Kerry</td>
-                                                <td>1</td>
-                                                <td>Ali</td>
-                                                <td>Kerry</td>
-                                                <td>1</td>
-                                                <td>Ali</td>
-                                                <td>Kerry</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="card card-small mb-4" >
+                    <div class="card-body p-0 pb-3 text-center">
+                        <table class="table mb-0">
+                            <thead class="bg-light">
+                            <tr>
+                                <th scope="col" class="border-0">제품명</th>
+                                <th scope="col" class="border-0">업체명</th>
+                                <th scope="col" class="border-0">유형</th>
+                                <th scope="col" class="border-0">유통기한</th>
+                                <!--<th scope="col" class="border-0">고열량저영양식품여부</th>
+                                <th scope="col" class="border-0">어린이기호식품품질인증여부</th>-->
+                                <th scope="col" class="border-0">제조일자</th>
+                                <th scope="col" class="border-0">구매일자</th>
+                                <th scope="col" class="border-0">My Bucket에 추가하기</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tbody_jepum">
+                            </tbody>
+                        </table>
                     </div>
+                </div>
             </div>
             <div class="tab_box2 tab_box">
-                <section class="col-xs-12 col-sm-6 col-md-12">
-                    <article class="search-result row">
-                        <div class="col-xs-12 col-sm-12 col-md-3">
-                            <a href="{% url 'jangbogo:recallListDetail' 1%}" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/people" alt="Lorem ipsum" /></a>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-2">
-                            <ul class="meta-search">
-                                <li><i class="glyphicon glyphicon-calendar"></i> <span>02/15/2014</span></li>
-                                <li><i class="glyphicon glyphicon-time"></i> <span>4:28 pm</span></li>
-                                <li><i class="glyphicon glyphicon-tags"></i> <span>People</span></li>
-                            </ul>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-                            <h3><a href="{% url 'jangbogo:recallListDetail' 1%}" title="">회수.판매중지 정보</a></h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>
-                            <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
-                        </div>
-                        <span class="clearfix borda"></span>
-                    </article>
-
-                    <article class="search-result row">
-                        <div class="col-xs-12 col-sm-12 col-md-3">
-                            <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/food" alt="Lorem ipsum" /></a>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-2">
-                            <ul class="meta-search">
-                                <li><i class="glyphicon glyphicon-calendar"></i> <span>02/13/2014</span></li>
-                                <li><i class="glyphicon glyphicon-time"></i> <span>8:32 pm</span></li>
-                                <li><i class="glyphicon glyphicon-tags"></i> <span>Food</span></li>
-                            </ul>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-7">
-                            <h3><a href="{% url 'jangbogo:recallListDetail' 1%}" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>
-                            <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
-                        </div>
-                        <span class="clearfix borda"></span>
-                    </article>
-
-                    <article class="search-result row">
-                        <div class="col-xs-12 col-sm-12 col-md-3">
-                            <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/sports" alt="Lorem ipsum" /></a>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-2">
-                            <ul class="meta-search">
-                                <li><i class="glyphicon glyphicon-calendar"></i> <span>01/11/2014</span></li>
-                                <li><i class="glyphicon glyphicon-time"></i> <span>10:13 am</span></li>
-                                <li><i class="glyphicon glyphicon-tags"></i> <span>Sport</span></li>
-                            </ul>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-7">
-                            <h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>
-                            <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
-                        </div>
-                        <span class="clearfix border"></span>
-                    </article>
-
-                </section>
+                   <div class="card card-small mb-4" >
+                    <div class="card-body p-0 pb-3 text-center">
+                        <table class="table mb-0">
+                            <thead class="bg-light">
+                            <tr>
+                                <th scope="col" class="border-0">제품명</th>
+                                <th scope="col" class="border-0">업체명</th>
+                                <th scope="col" class="border-0">유형</th>
+                                <th scope="col" class="border-0">유통기한</th>
+                                <th scope="col" class="border-0">등록일</th>
+                                <th scope="col" class="border-0">회수사유</th>
+                                <th scope="col" class="border-0">회수방법</th>
+                                <th scope="col" class="border-0">상세</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tbody_recall">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
             <div class="tab_box3 tab_box">
-                <div class="container">
-                    <div class="">
-                        <div class="col">
-                            <div class="card card-small mb-4" style="height: 600px; overflow:auto">
-                                <div class="card-header border-bottom">
-                                    <h6 class="m-0" align="center">과대 광고 리스트</h6>
-                                </div>
-                                <div class="card-body p-0 pb-3 text-center">
-                                    <table class="table mb-0">
-                                        <thead class="bg-light">
-                                        <tr>
-                                            <th scope="col" class="border-0">제품명</th>
-                                            <th scope="col" class="border-0">업체명</th>
-                                            <th scope="col" class="border-0">처분명</th>
-                                            <th scope="col" class="border-0">행정처분일자</th>
-                                            <th scope="col" class="border-0">광고적발내용</th>
-                                            <th scope="col" class="border-0">위반법령</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody id="tbody_fake">
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Ali</td>
-                                            <td>Kerry</td>
-                                            <td>1</td>
-                                            <td>Ali</td>
-                                            <td>Kerry</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+                <div class="card card-small mb-4" >
+                    <div class="card-body p-0 pb-3 text-center">
+                        <table class="table mb-0">
+                            <thead class="bg-light">
+                            <tr>
+                                <th scope="col" class="border-0">제품명</th>
+                                <th scope="col" class="border-0">업체명</th>
+                                <th scope="col" class="border-0">처분명</th>
+                                <th scope="col" class="border-0">행정처분일자</th>
+                                <th scope="col" class="border-0">광고적발내용</th>
+                                <th scope="col" class="border-0">위반법령</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tbody_fake">
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

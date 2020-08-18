@@ -20,14 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4afb98f0-92e1-47fd-b6fe-93f1e3a3bf66" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jangbogo/templates/jangbogo/notice_board.html" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/templates/jangbogo/notice_board.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jangbogo/templates/jangbogo/product_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/templates/jangbogo/product_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jangbogo/templates/jangbogo/product_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/templates/jangbogo/product_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jangbogo/templates/users/login_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/templates/users/login_register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jangbogo/templates/users/mypage.html" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/templates/users/mypage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jangbogo/urls/users_urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/urls/users_urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jangbogo/urls/jangbogo_urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/urls/jangbogo_urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jangbogo/views/jangbogo_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/views/jangbogo_views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jangbogo/views/users_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/views/users_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jangbogo_project/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo_project/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jangbogo_project/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo_project/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/product-list-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/product-list-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/product-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/product-list.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +68,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/css" />
+    <property name="last_opened_file_path" value="$USER_HOME$/WebstormProjects" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -104,8 +108,6 @@
       <workItem from="1597278321758" duration="30573000" />
       <workItem from="1597363913260" duration="1695000" />
       <workItem from="1597367256848" duration="23228000" />
-      <workItem from="1597710871038" duration="14000" />
-      <workItem from="1597710888526" duration="15876000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1597222887601</created>
@@ -114,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597222887601</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="notice_board css 수정_200818">
+      <created>1597712136224</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1597712136224</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,6 +132,11 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State />
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
@@ -134,7 +148,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="notice_board css 수정_200818" />
+    <option name="LAST_COMMIT_MESSAGE" value="notice_board css 수정_200818" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="198" key="#Inspections" timestamp="1597311612768">
@@ -149,18 +164,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597292598638" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1597281047060">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1597715921847">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597281047060" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597715921847" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1597312905987">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1597312905987" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597222915694">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597712148511">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597222915694" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597712148511" />
     <state x="92" y="92" width="1736" height="856" key="dock-window-1" timestamp="1597296101310">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -44,9 +44,10 @@ button {
     display:flex;
 }
 .tab_menu_btn {
-    width:80px;
+    width:150px;
     height:40px;
     transition:0.3s all;
+
 }
 .tab_menu_btn.on {
     border-bottom:2px solid #df0000;
@@ -55,11 +56,36 @@ button {
 }
 .tab_menu_btn:hover {
     color:#df0000;
+    border: 1px solid black;
+    box-shadow: 0 2px 0 rgba(90, 97, 105, 0.11), 0 4px 8px rgba(90, 97, 105, 0.12), 0 10px 10px rgba(90, 97, 105, 0.06), 0 7px 70px rgba(90, 97, 105, 0.1);
 }
 .tab_box {
     display:none;
     padding:20px;
+
 }
 .tab_box.on {
     display:block;
+}
+
+.tab_wrap{
+    margin-top: 5%;
+}
+
+.tab_box_container{
+border: 1px solid grey;
+box-shadow: 0 2px 0 rgba(90, 97, 105, 0.11), 0 4px 8px rgba(90, 97, 105, 0.12), 0 10px 10px rgba(90, 97, 105, 0.06), 0 7px 70px rgba(90, 97, 105, 0.1);
+}
+
+.btn-search{
+    border: none;
+    width: 100px;
+    height: 40px;
+    background-color: #78C2AD;
+    color: white;
+    font-weight: 800;
+}
+
+.form-control{
+    height: 40px;
 }
