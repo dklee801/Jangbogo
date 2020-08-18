@@ -46,7 +46,7 @@
                     </table>
                 </div>
             </div>
-            <div class="card card-small mb-4" id="false-ad-list-container"">
+            <div class="card card-small mb-4" id="false-ad-list-container">
                 <div class="card-header border-bottom">
                     <h4 class="m-0" align="center">허위 광고 리스트</h4>
                 </div>
@@ -103,7 +103,9 @@
             <div class="card card-big overflow-hidden mb-4" >
                 <div class="card-header border-bottom">
                     <h4 class="m-0" align="center">보유/구매 제품 목록</h4>
-                    <a href="{% url 'jangbogo:recallListAll' %}" >추가</a>
+                    <div class="add-btn-container">
+                        <input id="add-btn" type="button" onClick="location.href='{% url 'jangbogo:productListSearch' %}'"value="추 가" />
+                    </div>
                 </div>
                 <div class="card-body p-0 pb-3 text-center">
                     <table class="table mb-0">

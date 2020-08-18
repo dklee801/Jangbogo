@@ -32,3 +32,19 @@
     padding-left: 20px;
     margin-bottom: 5%;
 }
+
+.add-btn-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#add-btn{
+    border: none;
+    border-radius: 5px;
+    background-color: #78C2AD;
+    color: white;
+    font-size: 18px;
+    width: 80px;
+    height: 40px;
+    margin-right: 20px;
+}
