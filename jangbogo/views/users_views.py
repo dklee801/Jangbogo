@@ -2,6 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponse
 from jangbogo.models import User, Purchase
 from django.core import serializers
+import json
+import requests
+from jangbogo.forms import UserForm
+
 import json, re, requests
 
 def getServiceKey():
@@ -24,6 +28,29 @@ def logIn(request):
         pass
 
     return render(request, 'users/login_register.html')
+    if request.method == 'POST':
+        try:
+            user = User.objects.get(
+                user_name= request.POST['user_name']
+            )
+
+        except User.DoesNotExist:
+            error_message = '아이디가 없습니다.'
+            return render(request,'users/login_register.html',{'error_message' : error_message})
+
+        else:
+            if user.user_password != request.POST['user_password']:
+                error_message = '비밀번호가 틀렸습니다.'
+                return render(request, 'users/login_register.html', {'error_message': error_message})
+
+            else:
+                context = {
+                'user':user
+                }
+                return render(request,'home.html', context = context)
+    else:
+         pass
+
 
 def logOut(request):
     if request.session.get('user'):
@@ -31,10 +58,31 @@ def logOut(request):
     return redirect('http://localhost:8000/')
 
 def signUp(request):
-    return true
+
+    if request.method == 'POST':
+        user_name = request.POST['user_name']
+        user_password = request.POST['user_password']
+        user_email = request.POST['user_email']
+        try:
+            User.objects.get(user_name=user_name)
+
+        except User.DoesNotExist:
+            success_message = '아이디가 생성 되었습니다.'
+            User.objects.create(user_name=user_name, user_password=user_password, user_email=user_email)
+            return render(request,'home.html',{'success_message' : success_message})
+
+        else:
+            error_message = '이미 존재하는 아이디 입니다.'
+            return render(request,'users/login_register.html',{'error_message' : error_message})
+
+    else:
+        return render(request, 'home.html')
+
+
 
 def loginRegister(request):
-    return render(request, 'users/login_register.html')
+    user_form = UserForm(request.POST);
+    return render(request, 'users/login_register.html', {"user_form": user_form})
 
 def userInfo(request, user_id):
     user = User.objects.get(id=user_id)
