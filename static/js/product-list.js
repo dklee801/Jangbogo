@@ -169,12 +169,11 @@ function call_fakejax(){
     })
 }
 
-
 function init() {
     console.log('초기화');
     call_jepumjax()
     call_fakejax()
 }
 
-init()
+init();
 
