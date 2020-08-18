@@ -21,7 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4afb98f0-92e1-47fd-b6fe-93f1e3a3bf66" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jangbogo/templates/users/login_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/templates/users/login_register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jangbogo/views/users_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/views/users_views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597732480078</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="db temp">
+      <created>1597734046720</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1597734046720</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,7 +155,8 @@
     <MESSAGE value="init" />
     <MESSAGE value="notice_board css 수정_200818" />
     <MESSAGE value="product_list 수정_200818" />
-    <option name="LAST_COMMIT_MESSAGE" value="product_list 수정_200818" />
+    <MESSAGE value="db temp" />
+    <option name="LAST_COMMIT_MESSAGE" value="db temp" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="198" key="#Inspections" timestamp="1597311612768">
@@ -166,14 +175,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597715921847" />
+    <state x="598" y="280" key="MultipleFileMergeDialog" timestamp="1597734066452">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="598" y="280" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597734066452" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1597312905987">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1597312905987" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597732484253">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597734086841">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597732484253" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597734086841" />
     <state x="92" y="92" width="1736" height="856" key="dock-window-1" timestamp="1597296101310">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -4,7 +4,7 @@ from jangbogo.models import User, Purchase
 from django.core import serializers
 import json
 import requests
-from jangbogo.forms import UserForm
+
 
 import json, re, requests
 
@@ -17,18 +17,6 @@ def getServiceKey():
 # Create your views here.
 def logIn(request):
     if request.method == 'POST':
-        user_id = request.POST.get('username')
-        user_pw = request.POST.get('password')
-
-        if user_id and user_pw:
-            user = User.objects.get(user_name=user_id)
-            request.session['user'] = user.id
-            return redirect('users:noticeBoard', user.id)
-    else:
-        pass
-
-    return render(request, 'users/login_register.html')
-    if request.method == 'POST':
         try:
             user = User.objects.get(
                 user_name= request.POST['user_name']
@@ -36,7 +24,7 @@ def logIn(request):
 
         except User.DoesNotExist:
             error_message = '아이디가 없습니다.'
-            return render(request,'users/login_register.html',{'error_message' : error_message})
+            return render(request, 'users/login_register.html',{'error_message' : error_message})
 
         else:
             if user.user_password != request.POST['user_password']:
@@ -44,13 +32,10 @@ def logIn(request):
                 return render(request, 'users/login_register.html', {'error_message': error_message})
 
             else:
-                context = {
-                'user':user
-                }
-                return render(request,'home.html', context = context)
-    else:
-         pass
+                request.session['user'] = user.id
+                return redirect('users:noticeBoard', user.id)
 
+    return render(request, 'users/login_register.html')
 
 def logOut(request):
     if request.session.get('user'):
@@ -81,8 +66,7 @@ def signUp(request):
 
 
 def loginRegister(request):
-    user_form = UserForm(request.POST);
-    return render(request, 'users/login_register.html', {"user_form": user_form})
+    return render(request, 'users/login_register.html')
 
 def userInfo(request, user_id):
     user = User.objects.get(id=user_id)
