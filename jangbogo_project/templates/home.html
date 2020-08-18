@@ -30,7 +30,7 @@
             <h1>이 제품 안전할까?</h1>
             <!--<h2>but if we chase perfection we can catch excellence</h2>
 -->
-            <form class="input-group" action="{% url 'jangbogo:recallListAll' %}" method="post">
+            <form class="input-group" action="{% url 'jangbogo:productListSearch' %}" method="post">
                 {% csrf_token %}
                 <input type="text" placeholder="search for" class="form-control" name="keyword"><span class="input-group-btn">
                 <button type="submit" class="btn btn-search">Search</button>
