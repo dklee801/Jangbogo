@@ -41,20 +41,25 @@ def logOut(request):
 def signUp(request):
 
     if request.method == 'POST':
-        user_name = request.POST['user_name']
-        user_password = request.POST['user_password']
-        user_email = request.POST['user_email']
-        try:
-            User.objects.get(user_name=user_name)
-
-        except User.DoesNotExist:
-            success_message = '아이디가 생성 되었습니다.'
-            User.objects.create(user_name=user_name, user_password=user_password, user_email=user_email)
-            return render(request,'home.html',{'success_message' : success_message})
+        if request.POST['user_password1'] != request.POST['user_password2']:
+            error_message = '비밀번호가 다릅니다.'
+            return render(request, 'users/login_register.html', {'error_message': error_message})
 
         else:
-            error_message = '이미 존재하는 아이디 입니다.'
-            return render(request,'users/login_register.html',{'error_message' : error_message})
+            user_name = request.POST['user_name']
+            user_email = request.POST['user_email']
+            user_password = request.POST['user_password1']
+            try:
+                User.objects.get(user_name=user_name)
+
+            except User.DoesNotExist:
+                success_message = '아이디가 생성 되었습니다.'
+                User.objects.create(user_name=user_name, user_password=user_password, user_email=user_email)
+                return render(request,'home.html',{'success_message' : success_message})
+
+            else:
+                error_message = '이미 존재하는 아이디 입니다.'
+                return render(request,'users/login_register.html',{'error_message' : error_message})
 
     else:
         return render(request, 'home.html')
@@ -73,12 +78,18 @@ def userUpdate(request, user_id):
     if request.method == 'POST':
         user_password = request.POST.get('password')
         user_email = request.POST.get('email')
-
-        if user_id and user_email:
-            user.user_password = user_password
-            user.user_email = user_email
-            user.save()
-            return redirect('users:userInfo', user.id)
+        user_repassword = request.POST.get('re_password')
+        user_curpassword = request.POST.get('current_password')
+        if user.user_password == user_curpassword:
+            if user_password != user_repassword:
+                error_message = '비밀번호가 틀립니다.'
+            elif user_id and user_email:
+                user.user_password = user_password
+                user.user_email = user_email
+                user.save()
+                return redirect('users:userInfo', user.id)
+        else:
+            error_message = '비밀번호가 틀립니다.'
     else:
         pass
     return render(request, 'users/mypage.html', {'user':user})
@@ -91,7 +102,7 @@ def userDelete(request, user_id):
             del(request.session['user'])
             return redirect('http://localhost:8000/')
         else:
-            error_message = '이미 존재하는 이름입니다.'
+            error_message = '비밀번호가 틀립니다.'
             return redirect('users:userInfo', user.id)
 
 

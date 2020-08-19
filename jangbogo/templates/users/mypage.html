@@ -63,15 +63,19 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="fePassword">현재 비밀번호</label>
-                                                <input type="password" class="form-control" id="fePassword" placeholder="Password" name="current_password">
+                                                <input type="password" class="form-control" id="fePassword_cur" placeholder="Password" name="current_password">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="feEmailAddress">이메일</label>
+                                                <input type="email" class="form-control" id="feEmailAddress" placeholder="Email" name="email" value={{user.user_email}}>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="fePassword">변경 후 비밀번호</label>
                                                 <input type="password" class="form-control" id="fePassword" placeholder="Password" name="password">
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="feEmailAddress">이메일</label>
-                                                <input type="email" class="form-control" id="feEmailAddress" placeholder="Email" name="email" value={{user.user_email}}>
+                                                <label for="fePassword">변경 후 비밀번호 확인</label>
+                                                <input type="password" class="form-control" id="fePassword_re" placeholder="Password" name="re_password">
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-accent">정보 수정</button>
@@ -94,8 +98,14 @@
                                         {% csrf_token %}
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
-                                                <label for="fePassword">현재 비밀번호 확인</label>
+                                                <label for="fePassword">현재 비밀번호</label>
                                                 <input type="password" class="form-control" id="fePassword2" placeholder="Password" name="current_password2">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="fePassword">비밀번호 확인</label>
+                                                <input type="password" class="form-control" id="fePassword3" placeholder="Password" name="current_repassword">
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-danger">회원 탈퇴</button>
