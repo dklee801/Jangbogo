@@ -62,7 +62,6 @@ function call_jepum(){
     var dataType = "json"
     var startIdx = "1"
     var endIdx = "200"
-    //console.log("http://openapi.foodsafetykorea.go.kr/api/" + keyId +"/"+ serviceId +"/"+ dataType +"/"+ startIdx +"/"+ endIdx +"/PRDLST_NM="+search_key+"/");
 
     $.ajax({
         async : true,
@@ -88,7 +87,7 @@ function call_jepum(){
             //var highcalorie = $("<td></td>").text(item.HIENG_LNTRT_DVS_NM) //고열량저영양식품여부
             //var children = $("<td></td>").text(item.CHILD_CRTFC_YN) //어린이기호식품품질인증여부
             var buttonTd = $("<td></td>") //추가하기 버튼
-            var jejoTd = $("<td id='jejo-dt'></td>") // 제조일자
+            var jejoTd = $("<td></td>") // 제조일자
             var purTd = $("<td></td>") // 구매일자
             var button = $("<input />").attr("type","button").attr("value","추가하기")
             button.on("click", function() {
@@ -164,11 +163,10 @@ function call_recall(){
         type:"GET",
         url : "http://openapi.foodsafetykorea.go.kr/api/" + keyId +"/I0490/json/1/1000/",
         success: function(result){
-        console.log(result);
-            //console.log("성공했습니다");
+        noResult = true;
             $.each(result.I0490.row, function(idx,item) {
-                //console.log(item["PRDTNM"]);
                 if (item["PRDTNM"] === search_key){
+                    noResult = false;
                     var tr = $("<tr></tr>") // <tr></tr>
                     var productTd = $("<td></td>").text(item["PRDTNM"]) // 제품명
                     var entrpsTd = $("<td></td>").text(item["BSSHNM"]) // 업체명
@@ -181,10 +179,9 @@ function call_recall(){
                     var button = $("<input />").attr("type","button").attr("value","상세")
 
                     button.on("click", function() {
-                        // location.href = '/jangbogo/recall_list/detail/' + item["PRDTNM"] +"/"+ item["BSSHNM"]+"/";
                         $.ajax({
                             async : true,
-                            url : '/jangbogo/recall_list/detail/',
+                            url : '/jangbogo/recall_list/saveDetail/',
                             type : "POST",
                             dataType : "json",
                             beforeSend: function(xhr, settings) {
@@ -192,13 +189,12 @@ function call_recall(){
                                     xhr.setRequestHeader("X-CSRFToken", csrftoken);
                                 }
                             },
-                            data: {
-                                    /*1	PRDTNM	제품명
+                            data: {/*1	PRDTNM	제품명
                                     2	RTRVLPRVNS	회수사유
                                     3	BSSHNM	제조업체명
                                     4	ADDR	업체주소
                                     5	PRCSCITYPOINT_TELNO	전화번호
-                                    6	BRCDNO	바코드번호
+                                    //6	BRCDNO	바코드번호
                                     7	FRMLCUNIT	포장단위
                                     8	MNFDT	제조일자
                                     9	RTRVLPLANDOC_RTRVLMTHD	회수방법
@@ -216,7 +212,7 @@ function call_recall(){
                                     "bsshnm": item["BSSHNM"],
                                     "addr": item["ADDR"],
                                     "prcscitypoint_telno": item["PRCSCITYPOINT_TELNO"],
-                                    "brcdno": item["BRCDNO"],
+                                    //"brcdno": item["BRCDNO"],
                                     "frmlcunit": item["FRMLCUNIT"],
                                     "mnfdt": item["MNFDT"],
                                     "rtrvlplandoc_rtrvlmthd": item["RTRVLPLANDOC_RTRVLMTHD"],
@@ -231,10 +227,12 @@ function call_recall(){
                                     "prdlst_cd_nm": item["PRDLST_CD_NM"],
                             },
                             success : function(result) {
-                                alert(result.message);
+                                console.log(result.message);
+                                location.href = '/jangbogo/recall_list/detail/' + item["PRDTNM"] +"/"+ item["BSSHNM"]+"/";
                             },
                             error: function(error){
-                                alert(result.message);
+                                 console.log(result.message);
+                                 console.log(error);
                             }
                         });
                     })
@@ -251,14 +249,15 @@ function call_recall(){
 
                     $("#tbody_recall").append(tr)
                 }
-                /*else{
-                    var tr = $("<tr></tr>");
-                    var noResultMsg = $("<h3></h3>").text("검색결과가 없습니다.");
-                    tr.append(noResultMsg);
-                    $("#tbody_recall").append(tr);
-                }*/
+
 
             })
+          if (noResult === true){
+            var tr = $("<tr></tr>");
+            var noResultMsg = $("<h3></h3>").text("검색결과가 없습니다.");
+            tr.append(noResultMsg);
+            $("#tbody_recall").append(tr);
+          }
 
 
         },
