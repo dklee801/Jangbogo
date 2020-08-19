@@ -29,13 +29,15 @@ def logIn(request):
 
             else:
                 request.session['user'] = user.id
+                request.session['username'] = user.user_name
+                request.session['useremail'] = user.user_email
                 return redirect('users:noticeBoard', user.id)
 
     return render(request, 'users/login_register.html')
 
 def logOut(request):
     if request.session.get('user'):
-        del(request.session['user'])
+        request.session.clear()
     return redirect('http://localhost:8000/')
 
 def signUp(request):
@@ -99,8 +101,7 @@ def userDelete(request, user_id):
     if request.method == 'POST':
         if user.user_password == request.POST.get("current_password2"):
             user.delete()
-            del(request.session['user'])
-            return redirect('http://localhost:8000/')
+            logOut()
         else:
             error_message = '비밀번호가 틀립니다.'
             return redirect('users:userInfo', user.id)
