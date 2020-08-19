@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="../../../static/css/login-register-style.css">
 </head>
 <body>
+{% if error_message %}
+    <h1 style="color:red"> {{error_message}} </h1>
+    {% endif %}
 <div class="wrap">
     <div class="form-wrap">
         <div class="button-wrap">
@@ -13,17 +16,18 @@
             <button type="button" class="togglebtn" onclick="login()">LOG IN</button>
             <button type="button" class="togglebtn" onclick="register()">REGISTER</button>
         </div>
-        <form id="login" action="{% url 'users:logIn'%}" class="input-group" method="post">
+         <form id="login" method = "post" action="{% url 'users:logIn' %}" class="input-group">
             {% csrf_token %}
-            <input type="text" class="input-field" placeholder="User name or Email" name="username" required>
-            <input type="password" class="input-field" placeholder="Enter Password" name="password" required>
+            <input type="text" class="input-field" name = "user_name" placeholder="User name" required>
+            <input type="password" class="input-field" name = "user_password"  placeholder="Enter Password" required>
             <input type="checkbox" class="checkbox"><span>Remember Password</span>
             <button class="submit">Login</button>
         </form>
-        <form id="register" action="" class="input-group">
-            <input type="text" class="input-field" placeholder="User name or Email" required>
-            <input type="email" class="input-field" placeholder="Your Email" required>
-            <input type="password" class="input-field" placeholder="Enter Password" required>
+        <form id="register" method="post" action="{% url 'users:signUp'%}" class="input-group">
+            {% csrf_token %}
+            <input type="text" class="input-field" name="user_name" placeholder="User name or Email" required>
+            <input type="email" class="input-field" name="user_email" placeholder="Your Email" required>
+            <input type="password" class="input-field" name="user_password" placeholder="Enter Password" required>
             <input type="checkbox" class="checkbox"><span>Terms and conditions</span>
             <button class="submit">REGISTER</button>
         </form>
