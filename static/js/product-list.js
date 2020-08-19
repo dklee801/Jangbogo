@@ -72,7 +72,7 @@ function call_jepum(){
         //console.log(result);
         if (result.I1250.total_count === "0"){
             var tr = $("<tr></tr>");
-            var noResultMsg = $("<h3></h3>").text("검색결과가 없습니다.");
+            var noResultMsg = $("<h3></h3>").text("식품 검색결과가 없습니다.");
             tr.append(noResultMsg);
             $("#tbody_jepum").append(tr);
         }
@@ -144,6 +144,102 @@ function call_jepum(){
             $("#tbody_jepum").append(tr)
             })
         }
+        },
+        error : function(error) {
+            alert("실패")
+        }
+    })
+}
+
+function call_youngyangjepum(){
+    var search_key = $("#search_key").attr("search_key");
+    var keyId ="8c21dcaf0ba44796ada4"
+    var serviceId = "I0030"
+    var dataType = "json"
+    var startIdx = "1"
+    var endIdx = "200"
+
+    $.ajax({
+        async : true,
+        url : "http://openapi.foodsafetykorea.go.kr/api/" + keyId +"/"+ serviceId +"/"+ dataType +"/"+ startIdx +"/"+ endIdx +"/PRDLST_NM="+search_key+"/",
+        type : "GET",
+        dataType : "json",
+        success : function(result) {
+            //console.log(result);
+            if (result.I0030.total_count === "0"){
+                var tr = $("<tr></tr>");
+                var noResultMsg = $("<h3></h3>").text("건기식 검색결과가 없습니다.");
+                tr.append(noResultMsg);
+                $("#tbody_jepum").append(tr);
+            }
+            else{
+                $.each(result.I0030.row, function(idx,item) {
+                    var tr = $("<tr></tr>")
+                    var prdReportNo = item.PRDLST_REPORT_NO //제품제조번호
+                    var jepum = $("<td></td>").text(item.PRDLST_NM) //제품명
+                    var upche = $("<td></td>").text(item.BSSH_NM) //업체명
+                    var yuhyung = $("<td></td>").text(item.PRDLST_DCNM) //유형
+                    var yutong = $("<td></td>").text(item.POG_DAYCNT) // 유통기한
+                    //var highcalorie = $("<td></td>").text(item.HIENG_LNTRT_DVS_NM) //고열량저영양식품여부
+                    //var children = $("<td></td>").text(item.CHILD_CRTFC_YN) //어린이기호식품품질인증여부
+                    var buttonTd = $("<td></td>") //추가하기 버튼
+                    var jejoTd = $("<td></td>") // 제조일자
+                    var purTd = $("<td></td>") // 구매일자
+                    var button = $("<input />").attr("type","button").attr("value","추가하기")
+                    button.on("click", function() {
+                        if (confirm('보유/구매목록에 추가하시겠습니까?')) {
+                            // Save it!
+                            $.ajax({
+                                async : true,
+                                url : '/users/1/1/add_product/',
+                                type : "POST",
+                                dataType : "json",
+                                beforeSend: function(xhr, settings) {
+                                    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                                        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                                    }
+                                },
+                                data: {
+                                    "prdReportNo" : prdReportNo,
+                                    "pur_name" : item.PRDLST_NM,
+                                    "pur_company" : item.BSSH_NM,
+                                    "pur_jejodate": jejo_date.val(),
+                                    "pur_date": pur_date.val(),
+                                    "pur_expire_period": item.POG_DAYCNT
+                                },
+                                success : function(result) {
+                                    alert(result.message);
+                                },
+                                error: function(error){
+                                    alert(result.message);
+                                }
+                            });
+                        } else {
+                            // Do nothing!
+                            console.log('Thing was not saved to the database.');
+                        }
+                    })
+
+                    var jejo_date = $("<input />").attr("type","date")
+                    var pur_date = $("<input />").attr("type","date")
+
+                    buttonTd.append(button)
+                    jejoTd.append(jejo_date)
+                    purTd.append(pur_date)
+
+                    tr.append(jepum)
+                    tr.append(upche)
+                    tr.append(yuhyung)
+                    tr.append(yutong)
+                    //tr.append(highcalorie)
+                    //tr.append(children)
+                    tr.append(jejoTd)
+                    tr.append(purTd)
+                    tr.append(buttonTd)
+
+                    $("#tbody_jepum").append(tr)
+                })
+            }
         },
         error : function(error) {
             alert("실패")
@@ -309,6 +405,7 @@ function call_fake(){
 
 function init() {
     call_jepum();
+    call_youngyangjepum();
     call_recall();
     call_fake();
     //$(".tab_menu_btn2").on("click", call_recall);
@@ -316,4 +413,3 @@ function init() {
 }
 
 init();
-
