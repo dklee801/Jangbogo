@@ -61,7 +61,7 @@
             <div class="col-main">
                 <div class="product-view-area">
                     <div class="product-big-image col-xs-12 col-sm-5 col-lg-5 col-md-5">
-                        <div class="large-image"> <a href="/static/img/products/img01.jpg" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img class="zoom-img" src="/static/img/products/img01.jpg" alt="products"> </a> </div>
+                        <div class="large-image"> <a href="{{ search_img_file_path }}" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img class="zoom-img" src="{{ search_img_file_path }}" alt="products"> </a> </div>
                         <div class="flexslider flexslider-thumb">
                             <!--<ul class="previews-list slides">
                                 <li><a href='/static/img/products/img01.jpg' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/static/img/products/img01.jpg' "><img src="/static/img/products/img01.jpg" alt = "Thumbnail 2"/></a></li>
@@ -74,19 +74,20 @@
                     <div class="col-xs-12 col-sm-7 col-lg-7 col-md-7 product-details-area">
 
                         <div class="product-name">
-                            <h1>{{ prdtnm }}</h1>
+                            <p class="availability in-stock pull-right"> <span>식품 위해</span></p>
+                            <h1>{{ search_name }}</h1>
                         </div>
                         <div class="price-box">
-                            <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> (주)업체 </span> </p>
+                            <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> {{search_company_nm}}</span> </p>
                         </div>
                         <div class="ratings">
-                            <p class="rating-links"> <a href="#">회수 날짜</a> <span class="separator">|</span> <a href="#">2020-08-13</a> </p>
-                            <p class="availability in-stock pull-right"> <span>식품 위해</span></p>
+                            <p class="rating-links"> <span class="separator"></span> <a href="#">{{ search_cret_dtm }}</a> </p>
+
                         </div>
                         <div class="short-description">
-                            <h2>{{ rtrvlprvns }}</h2>
-                            <p> 회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수
-                            <p> 회수회수</p>
+                             <h2 class="saider-bar-title">회수 사유</h2>
+                            <!--<p> 회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수-->
+                            <p>{{ search_rtrvlprvns }}</p>
 
                         </div>
                         <div class="product-color-size-area">
@@ -94,7 +95,7 @@
                                 <h2 class="saider-bar-title">회수 폐기 방법</h2>
                                 <div class="color">
                                     <ul>
-                                        회수 방법
+                                        {{ search_rtrvlmthd }}
                                     </ul>
                                 </div>
                             </div>
@@ -102,16 +103,10 @@
                         </div>
                         <div class="product-variation">
                             <form action="#" method="post">
-                                <button class="button pro-add-to-cart" title="Add to Cart" type="button"><span><i class="fa fa-shopping-cart"></i> My bucket에 추가</span></button>
+                                <label>구매일자: <input type="date"/></label>
+                                <label>제조일자: <input type="date"/></label>
+                                <input value="Add to Bucket" type="submit"/>
                             </form>
-                        </div>
-                        <div class="product-cart-option">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-heart"></i><span>버튼 필요시1</span></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i><span>버튼 필요시1</span></a></li>
-                                <li><a href="#"><i class="fa fa-envelope"></i><span>버튼 필요시1</span></a></li>
-                            </ul>
-
                         </div>
                     </div>
                 </div>
@@ -123,228 +118,30 @@
                             <ul id="product-detail-tab" class="nav nav-tabs product-tabs">
                                 <li class="active"> <a href="#description" data-toggle="tab">제품 상세 정보</a> </li>
                                 <li> <a href="#custom_tabs" data-toggle="tab">업체 상세 정보</a> </li>
-                                <li> <a href="#reviews" data-toggle="tab">Reviews</a> </li>
                             </ul>
                             <div id="productTabContent" class="tab-content">
                                 <div class="tab-pane fade in active" id="description">
                                     <div class="std">
-                                        <p>Proin lectus ipsum, gravida et mattis vulputate,
-                                            tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in
-                                            faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend
-                                            laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla
-                                            luctus malesuada tincidunt. Nunc facilisis sagittis ullamcorper. Proin
-                                            lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et
-                                            lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et
-                                            ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus
-                                            adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada
-                                            tincidunt. Nunc facilisis sagittis ullamcorper. Proin lectus ipsum,
-                                            gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc.
-                                            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-                                            cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl
-                                            ut dolor dignissim semper. Nulla luctus malesuada tincidunt.</p>
-                                        <p> Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer enim purus, posuere at ultricies eu, placerat a felis. Suspendisse aliquet urna pretium eros convallis interdum. Quisque in arcu id dui vulputate mollis eget non arcu. Aenean et nulla purus. Mauris vel tellus non nunc mattis lobortis.</p>
-                                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio quis mi. Cras neque metus, consequat et blandit et, luctus a nunc. Etiam gravida vehicula tellus, in imperdiet ligula euismod eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </p>
-                                    </div>
-                                </div>
-
-
-                                <div id="reviews" class="tab-pane fade">
-                                    <div class="col-sm-5 col-lg-5 col-md-5">
-                                        <div class="reviews-content-left">
-                                            <h2>Customer Reviews</h2>
-                                            <div class="review-ratting">
-                                                <p><a href="#">Amazing</a> Review by Company</p>
-                                                <table>
-                                                    <tbody><tr>
-                                                        <th>Price</th>
-                                                        <td>
-                                                            <div class="rating">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Value</th>
-                                                        <td>
-                                                            <div class="rating">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Quality</th>
-                                                        <td>
-                                                            <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody></table>
-                                                <p class="author">
-                                                    Angela Mack<small> (Posted on 16/12/2015)</small>
-                                                </p>
-                                            </div>
-
-
-                                            <div class="review-ratting">
-                                                <p><a href="#">Good!!!!!</a> Review by Company</p>
-                                                <table>
-                                                    <tbody><tr>
-                                                        <th>Price</th>
-                                                        <td>
-                                                            <div class="rating">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Value</th>
-                                                        <td>
-                                                            <div class="rating">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Quality</th>
-                                                        <td>
-                                                            <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody></table>
-                                                <p class="author">
-                                                    Lifestyle<small> (Posted on 20/12/2015)</small>
-                                                </p>
-                                            </div>
-
-
-                                            <div class="review-ratting">
-                                                <p><a href="#">Excellent</a> Review by Company</p>
-                                                <table>
-                                                    <tbody><tr>
-                                                        <th>Price</th>
-                                                        <td>
-                                                            <div class="rating">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Value</th>
-                                                        <td>
-                                                            <div class="rating">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Quality</th>
-                                                        <td>
-                                                            <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody></table>
-                                                <p class="author">
-                                                    Jone Deo<small> (Posted on 25/12/2015)</small>
-                                                </p>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7 col-lg-7 col-md-7">
-                                        <div class="reviews-content-right">
-                                            <h2>Write Your Own Review</h2>
-                                            <form>
-                                                <h3>You're reviewing: <span>Donec Ac Tempus</span></h3>
-                                                <h4>How do you rate this product?<em>*</em></h4>
-                                                <div class="table-responsive reviews-table">
-                                                    <table>
-                                                        <tbody><tr>
-                                                            <th></th>
-                                                            <th>1 star</th>
-                                                            <th>2 stars</th>
-                                                            <th>3 stars</th>
-                                                            <th>4 stars</th>
-                                                            <th>5 stars</th>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Quality</td>
-                                                            <td><input type="radio"></td>
-                                                            <td><input type="radio"></td>
-                                                            <td><input type="radio"></td>
-                                                            <td><input type="radio"></td>
-                                                            <td><input type="radio"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Price</td>
-                                                            <td><input type="radio"></td>
-                                                            <td><input type="radio"></td>
-                                                            <td><input type="radio"></td>
-                                                            <td><input type="radio"></td>
-                                                            <td><input type="radio"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Value</td>
-                                                            <td><input type="radio"></td>
-                                                            <td><input type="radio"></td>
-                                                            <td><input type="radio"></td>
-                                                            <td><input type="radio"></td>
-                                                            <td><input type="radio"></td>
-                                                        </tr>
-                                                        </tbody></table></div>
-                                                <div class="form-area">
-                                                    <div class="form-element">
-                                                        <label>Nickname <em>*</em></label>
-                                                        <input type="text">
-                                                    </div>
-                                                    <div class="form-element">
-                                                        <label>Summary of Your Review <em>*</em></label>
-                                                        <input type="text">
-                                                    </div>
-                                                    <div class="form-element">
-                                                        <label>Review <em>*</em></label>
-                                                        <textarea></textarea>
-                                                    </div>
-                                                    <div class="buttons-set">
-                                                        <button class="button submit" title="Submit Review" type="submit"><span><i class="fa fa-thumbs-up"></i> &nbsp;Review</span></button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
+                                        <p><strong>{{ search_name }}</strong></p>
+                                        <p>회수사유:{{ search_rtrvlprvns }}</p>
+                                        <p>포장단위:{{ search_frmlcunit }}</p>
+                                        <p>제조일자:{{ search_jejodate }}</p>
+                                        <p>회수방법:{{ search_rtrvlmthd }}</p>
+                                        <p>유통기한:{{ search_expire_period }}</p>
+                                        <p>식품분류:{{ search_prdlst_type }}</p>
+                                        <p>품목코드:{{ search_prdlst_cd }}</p>
+                                        <p>회수.판매중지 일련번호:{{ search_rtrvldsuse_seq }}</p>
+                                        <p>품목제조보고번호:{{ search_prdlst_report_no }}</p>
+                                        <p>회수등급:{{ search_rtrvl_grdcd_nm }}</p>
+                                        <p>품목유형(품목코드명):{{ search_prdlst_cd_nm }}</p>
                                     </div>
                                 </div>
 
                                 <div class="tab-pane fade" id="product_tags">
                                     <div class="box-collateral box-tags">
                                         <div class="tags">
-
-
                                             <form id="addTagForm" action="#" method="get">
                                                 <div class="form-add-tags">
-
-
                                                     <div class="input-box"><label for="productTagName">Add Your Tags:</label>
                                                         <input class="input-text" name="productTagName" id="productTagName" type="text">
                                                         <button type="button" title="Add Tags" class="button add-tags"><i class="fa fa-plus"></i> &nbsp;<span>Add Tags</span> </button>
@@ -359,16 +156,9 @@
                                 </div>
                                 <div class="tab-pane fade" id="custom_tabs">
                                     <div class="product-tabs-content-inner clearfix">
-                                        <p><strong>Lorem Ipsum</strong><span>&nbsp;is
-                      simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                      has been the industry's standard dummy text ever since the 1500s, when
-                      an unknown printer took a galley of type and scrambled it to make a type
-                      specimen book. It has survived not only five centuries, but also the
-                      leap into electronic typesetting, remaining essentially unchanged. It
-                      was popularised in the 1960s with the release of Letraset sheets
-                      containing Lorem Ipsum passages, and more recently with desktop
-                      publishing software like Aldus PageMaker including versions of Lorem
-                      Ipsum.</span></p>
+                                        <p><strong>{{ search_company_nm }}</strong></p>
+                                        <p>&nbsp;업체 주소:{{ search_company_addr }}</p>
+                                        <p>&nbsp;업체 전화번호:{{ search_company_telno }}</p>
                                     </div>
                                 </div>
                             </div>

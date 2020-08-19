@@ -2,10 +2,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponse
 from jangbogo.models import User, Purchase
 from django.core import serializers
-import json
-import requests
-
-
 import json, re, requests
 
 def getServiceKey():
