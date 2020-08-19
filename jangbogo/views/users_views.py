@@ -45,20 +45,25 @@ def logOut(request):
 def signUp(request):
 
     if request.method == 'POST':
-        user_name = request.POST['user_name']
-        user_password = request.POST['user_password']
-        user_email = request.POST['user_email']
-        try:
-            User.objects.get(user_name=user_name)
-
-        except User.DoesNotExist:
-            success_message = '아이디가 생성 되었습니다.'
-            User.objects.create(user_name=user_name, user_password=user_password, user_email=user_email)
-            return render(request,'home.html',{'success_message' : success_message})
+        if request.POST['user_password1'] != request.POST['user_password2']:
+            error_message = '비밀번호가 다릅니다.'
+            return render(request, 'users/login_register.html', {'error_message': error_message})
 
         else:
-            error_message = '이미 존재하는 아이디 입니다.'
-            return render(request,'users/login_register.html',{'error_message' : error_message})
+            user_name = request.POST['user_name']
+            user_email = request.POST['user_email']
+            user_password = request.POST['user_password1']
+            try:
+                User.objects.get(user_name=user_name)
+
+            except User.DoesNotExist:
+                success_message = '아이디가 생성 되었습니다.'
+                User.objects.create(user_name=user_name, user_password=user_password, user_email=user_email)
+                return render(request,'home.html',{'success_message' : success_message})
+
+            else:
+                error_message = '이미 존재하는 아이디 입니다.'
+                return render(request,'users/login_register.html',{'error_message' : error_message})
 
     else:
         return render(request, 'home.html')
