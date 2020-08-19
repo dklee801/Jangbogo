@@ -140,3 +140,8 @@ h2 {}
 	.feature-section a{float:left; width:100%; text-align:center; margin-top:0;}
 	.f-small-block .small-inner{padding:0 20px}
 }
+
+.btn-about-us{
+    background-color: #78C2AD;
+    color: white;
+}

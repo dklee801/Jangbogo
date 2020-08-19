@@ -45,12 +45,18 @@ def userUpdate(request, user_id):
     if request.method == 'POST':
         user_password = request.POST.get('password')
         user_email = request.POST.get('email')
-
-        if user_id and user_email:
-            user.user_password = user_password
-            user.user_email = user_email
-            user.save()
-            return redirect('users:userInfo', user.id)
+        user_repassword = request.POST.get('re_password')
+        user_curpassword = request.POST.get('current_password')
+        if user.user_password == user_curpassword:
+            if user_password != user_repassword:
+                error_message = '비밀번호가 틀립니다.'
+            elif user_id and user_email:
+                user.user_password = user_password
+                user.user_email = user_email
+                user.save()
+                return redirect('users:userInfo', user.id)
+        else:
+            error_message = '비밀번호가 틀립니다.'
     else:
         pass
     return render(request, 'users/mypage.html', {'user':user})
@@ -63,7 +69,7 @@ def userDelete(request, user_id):
             del(request.session['user'])
             return redirect('http://localhost:8000/')
         else:
-            error_message = '이미 존재하는 이름입니다.'
+            error_message = '비밀번호가 틀립니다.'
             return redirect('users:userInfo', user.id)
 
 
