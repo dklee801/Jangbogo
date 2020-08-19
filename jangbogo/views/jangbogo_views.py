@@ -42,7 +42,11 @@ def saveRecallDetail(request):
         SearchKeywordDetail.objects.get(search_name=request.POST["prdtnm"], search_company_nm=request.POST["bsshnm"])
 
     except (KeyError, SearchKeywordDetail.DoesNotExist):
-        user = User.objects.get(pk=request.session['user'])
+        try:
+            user = User.objects.get(pk=request.session['user'])
+        except (KeyError, User.DoesNotExist):
+            user = User.objects.get(user_name="guest")
+
         recallDetail = SearchKeywordDetail.objects.create(
             search_user=user,
             search_name=request.POST["prdtnm"],
