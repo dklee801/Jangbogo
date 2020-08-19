@@ -54,7 +54,6 @@ function csrfSafeMethod(method) {
     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
 }
 
-
 function call_jepum(){
     var search_key = $("#search_key").attr("search_key");
     var keyId ="8c21dcaf0ba44796ada4"
@@ -70,11 +69,13 @@ function call_jepum(){
         dataType : "json",
         success : function(result) {
         //console.log(result);
+        var noResultJepum = false
         if (result.I1250.total_count === "0"){
-            var tr = $("<tr></tr>");
+            noResultJepum = true;
+          /*  var tr = $("<tr></tr>");
             var noResultMsg = $("<h3></h3>").text("식품 검색결과가 없습니다.");
             tr.append(noResultMsg);
-            $("#tbody_jepum").append(tr);
+            $("#tbody_jepum").append(tr);*/
         }
         else{
         $.each(result.I1250.row, function(idx,item) {
@@ -144,6 +145,7 @@ function call_jepum(){
             $("#tbody_jepum").append(tr)
             })
         }
+        call_youngyangjepum(noResultJepum);
         },
         error : function(error) {
             alert("실패")
@@ -151,7 +153,7 @@ function call_jepum(){
     })
 }
 
-function call_youngyangjepum(){
+function call_youngyangjepum(noResultJepum){
     var search_key = $("#search_key").attr("search_key");
     var keyId ="8c21dcaf0ba44796ada4"
     var serviceId = "I0030"
@@ -166,9 +168,10 @@ function call_youngyangjepum(){
         dataType : "json",
         success : function(result) {
             //console.log(result);
-            if (result.I0030.total_count === "0"){
+
+            if (result.I0030.total_count === "0" && noResultJepum === true){
                 var tr = $("<tr></tr>");
-                var noResultMsg = $("<h3></h3>").text("건기식 검색결과가 없습니다.");
+                var noResultMsg = $("<h3></h3>").text("검색결과가 없습니다.");
                 tr.append(noResultMsg);
                 $("#tbody_jepum").append(tr);
             }
@@ -191,7 +194,7 @@ function call_youngyangjepum(){
                             // Save it!
                             $.ajax({
                                 async : true,
-                                url : '/users/1/1/add_product/',
+                                url : '/users/'+ '1' +'/add_product/',
                                 type : "POST",
                                 dataType : "json",
                                 beforeSend: function(xhr, settings) {
@@ -405,7 +408,7 @@ function call_fake(){
 
 function init() {
     call_jepum();
-    call_youngyangjepum();
+    //call_youngyangjepum();
     call_recall();
     call_fake();
     //$(".tab_menu_btn2").on("click", call_recall);

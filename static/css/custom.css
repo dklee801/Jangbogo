@@ -6,14 +6,16 @@
 /* Padding below the footer and lighter body text */
 
 body,html{
-    width:100%; height:100%
+    width:100%;
+    height:100%
 }
 
 body {
-  color: #5a5a5a;
-  font-family: 'NanumSquare', 'Helvetica Neue', Arial, sans-serif;
-  text-transform: uppercase;
-  margin: 0;
+    color: #5a5a5a;
+    font-family: 'NanumSquare', 'Helvetica Neue', Arial, sans-serif;
+    text-transform: uppercase;
+    padding:0;
+    margin: 0;
 }
 
 a, a:hover, .btn{outline:none!important;}
@@ -94,7 +96,6 @@ footer {
     line-height:30px;
     margin: 0px;
     padding-right: 10px;
-
 }
 
 .btn-about-us{

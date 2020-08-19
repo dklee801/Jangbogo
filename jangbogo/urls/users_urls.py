@@ -12,7 +12,7 @@ urlpatterns = [
     path('<int:user_id>/user_update', users_views.userUpdate, name="userUpdate"), #회원정보 수정
     path('<int:user_id>/user_delete', users_views.userDelete, name="userDelete"), #회원탈퇴
     path('<int:user_id>/has_product/', users_views.hasProduct, name="hasProduct"), #구매,보유 목록 조회
-    path('<int:user_id>/<int:product_id>/add_product/', users_views.addProduct, name="addProduct"), #구매,보유 목록 추가
+    path('<int:user_id>/add_product/', users_views.addProduct, name="addProduct"), #구매,보유 목록 추가
     path('<int:user_id>/<int:product_id>/delete_product/', users_views.deleteProduct, name="deleteProduct"), #구매,보유 목록 삭제
     path('<int:user_id>/notice_board/', users_views.noticeBoard, name="noticeBoard"), #종합정보 조회 화면 이동
 ]

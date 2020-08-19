@@ -116,7 +116,7 @@ def hasProduct(request, user_id):
     }
     return HttpResponse(json.dumps(context), content_type="application/json")
 
-def addProduct(request, user_id, product_id):
+def addProduct(request, user_id):
 
     try:
         user = get_object_or_404(User, pk=user_id)
