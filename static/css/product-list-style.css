@@ -93,3 +93,7 @@ button {
 #decorate-div > span:nth-child(2){
     font-size: 18px;
 }
+
+#tbody_jepum{
+    position: relative;
+}

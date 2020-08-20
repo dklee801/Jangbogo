@@ -54,7 +54,48 @@ function csrfSafeMethod(method) {
     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
 }
 
+
+function LoadingWithMask() {
+    //화면의 높이와 너비를 구합니다.
+    var maskHeight = $(document).height();
+    var maskWidth  = window.document.body.clientWidth;
+    var gif = '/static/img/loadingImg.gif'
+
+    //화면에 출력할 마스크를 설정해줍니다.
+    var mask       ="<div id='mask' style='position:absolute; z-index:9000; background-color:#000000; display:flex; align-items: center; justify-content: center; left:0; top:0;'></div>";
+    var loadingImg ='';
+
+    loadingImg +="<div id='loadingImg'>";
+    loadingImg +=" <img src='"+ gif +"' style=' display: block; margin: 0px auto; margin-top: -50px; opacity : 0.3;'/>";
+    loadingImg +="</div>";
+
+    //화면에 레이어 추가
+    $("body")
+        .append(mask)
+    $("#mask").append(loadingImg)
+
+    //마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채웁니다.
+    $('#mask').css({
+            'width' : maskWidth
+            ,'height': maskHeight
+            ,'opacity' :'0.3'
+    });
+
+    //마스크 표시
+    $('#mask').show();
+
+    //로딩중 이미지 표시
+    $('#loadingImg').show();
+}
+
+function closeLoadingWithMask() {
+    $('#mask, #loadingImg').hide();
+    $('#mask, #loadingImg').remove();
+}
+
 function call_jepum(){
+    LoadingWithMask();
+
     var search_key = $("#search_key").attr("search_key");
     var keyId ="8c21dcaf0ba44796ada4"
     var serviceId = "I1250"
@@ -68,6 +109,7 @@ function call_jepum(){
         type : "GET",
         dataType : "json",
         success : function(result) {
+        closeLoadingWithMask();
         var noResultJepum = false
         if (result.I1250.total_count === "0"){
             noResultJepum = true;
@@ -152,6 +194,7 @@ function call_jepum(){
 }
 
 function call_youngyangjepum(noResultJepum){
+    LoadingWithMask();
     var search_key = $("#search_key").attr("search_key");
     var keyId ="8c21dcaf0ba44796ada4"
     var serviceId = "I0030"
@@ -165,6 +208,7 @@ function call_youngyangjepum(noResultJepum){
         type : "GET",
         dataType : "json",
         success : function(result) {
+        closeLoadingWithMask();
             if (result.I0030.total_count === "0" && noResultJepum === true){
                 var tr = $("<tr></tr>");
                 var noResultMsg = $("<h3></h3>").text("검색결과가 없습니다.");
@@ -240,6 +284,8 @@ function call_youngyangjepum(noResultJepum){
                     tr.append(buttonTd)
 
                     $("#tbody_jepum").append(tr)
+
+
                 })
             }
         },
