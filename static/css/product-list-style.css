@@ -1,6 +1,6 @@
 @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
 
-.mb20 { margin-top: 120px; margin-bottom: 20px; }
+.mb20 { margin: 60px 0px }
 
 hgroup { padding-left: 15px; border-bottom: 1px solid #ccc; }
 hgroup h1 { font: 500 normal 1.625em "NanumSquare",Arial,Verdana,sans-serif; color: #2a3644; margin-top: 0; line-height: 1.15; }
@@ -77,4 +77,19 @@ button {
 
 .form-control{
     height: 40px;
+}
+
+#decorate-div{
+    margin-top: 50px;
+    width: 100%;
+    height: 170px;
+    background-color: rgb(0, 121, 107);
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    line-height: 170px;
+}
+
+#decorate-div > span:nth-child(2){
+    font-size: 18px;
 }

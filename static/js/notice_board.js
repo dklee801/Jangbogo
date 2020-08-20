@@ -110,10 +110,11 @@ function getHasProductList(){
                     var tr = $("<tr></tr>") // <tr></tr>
                     var productTd =  $("<td></td>").text(purName) // <td></td>
                     var entrpsTd = $("<td></td>").text(purCompany) // <td></td>
+                    var expiredPeriodTd = $("<td></td>").text(expiredPeriod)
 
                     tr.append(productTd)
                     tr.append(entrpsTd)
-                    tr.append(expiredPeriod)
+                    tr.append(expiredPeriodTd)
 
                     $("#expired-tbody").append(tr)
                 }

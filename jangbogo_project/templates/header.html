@@ -1,20 +1,20 @@
 <header>
     <nav class="navbar navbar-default top-bar" data-spy="affix" data-offset-top="250" >
+        <input type="hidden" value="{{ request.session.user }}"/>
         <div class="container" >
             <div id="navbar-collapse" >
-                <a href="http://localhost:8000/" class="navbar-brand"><img id="logo-img" src="/static/img/logo_h.png"/></a>
+                <a href="http://localhost:8000/" class="navbar-brand"><img id="logo-img" src="/static/img/logo_h_w.png"/></a>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/about_us/">About Us</a></li>
                     <li><a>ㅣ</a></li>
                     <li><a href="{% url 'users:noticeBoard' 1 %}">Bucket</a></li>
                     <li><a>ㅣ</a></li>
                     {% if request.session.user %}
-                    <li><a href="{% url 'users:userInfo' request.session.user %}"><U>{{request.session.username}}</U></a></li>
-                    <li><a>ㅣ</a></li>
-                    <li><a href="{% url 'users:logOut' %}">Log Out</a></li>
+                        <li><a href="{% url 'users:userInfo' request.session.user %}"><U>{{request.session.username}}</U></a></li>
+                        <li><a>ㅣ</a></li>
+                        <li><a href="{% url 'users:logOut' %}">Log Out</a></li>
                     {% else %}
-                    <li><a>ㅣ</a></li>
-                    <li><a href="{% url 'users:loginRegister' %}">Log In</a></li>
+                        <li><a href="{% url 'users:loginRegister' %}">Log In</a></li>
                     {% endif %}
                 </ul>
             </div>

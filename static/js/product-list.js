@@ -68,14 +68,9 @@ function call_jepum(){
         type : "GET",
         dataType : "json",
         success : function(result) {
-        //console.log(result);
         var noResultJepum = false
         if (result.I1250.total_count === "0"){
             noResultJepum = true;
-          /*  var tr = $("<tr></tr>");
-            var noResultMsg = $("<h3></h3>").text("식품 검색결과가 없습니다.");
-            tr.append(noResultMsg);
-            $("#tbody_jepum").append(tr);*/
         }
         else{
         $.each(result.I1250.row, function(idx,item) {
@@ -92,11 +87,14 @@ function call_jepum(){
             var purTd = $("<td></td>") // 구매일자
             var button = $("<input />").attr("type","button").attr("value","추가하기")
             button.on("click", function() {
-                if (confirm('보유/구매목록에 추가하시겠습니까?')) {
+               var user_id = $("input[type=hidden]").val()
+               if (user_id === ''){
+                alert("로그인 후 이용가능한 서비스입니다.");
+               }else if (confirm('보유/구매목록에 추가하시겠습니까?')) {
                     // Save it!
                     $.ajax({
                         async : true,
-                        url : '/users/1/1/add_product/',
+                        url : '/users/' + user_id + '/add_product/',
                         type : "POST",
                         dataType : "json",
                         beforeSend: function(xhr, settings) {
@@ -167,8 +165,6 @@ function call_youngyangjepum(noResultJepum){
         type : "GET",
         dataType : "json",
         success : function(result) {
-            //console.log(result);
-
             if (result.I0030.total_count === "0" && noResultJepum === true){
                 var tr = $("<tr></tr>");
                 var noResultMsg = $("<h3></h3>").text("검색결과가 없습니다.");
@@ -190,11 +186,14 @@ function call_youngyangjepum(noResultJepum){
                     var purTd = $("<td></td>") // 구매일자
                     var button = $("<input />").attr("type","button").attr("value","추가하기")
                     button.on("click", function() {
-                        if (confirm('보유/구매목록에 추가하시겠습니까?')) {
+                        var user_id = $("input[type=hidden]").val();
+                        if (user_id === ''){
+                            alert("로그인 후 이용가능한 서비스입니다.");
+                        }else if (confirm('보유/구매목록에 추가하시겠습니까?')) {
                             // Save it!
                             $.ajax({
                                 async : true,
-                                url : '/users/'+ '1' +'/add_product/',
+                                url : '/users/'+ user_id +'/add_product/',
                                 type : "POST",
                                 dataType : "json",
                                 beforeSend: function(xhr, settings) {
@@ -252,7 +251,7 @@ function call_youngyangjepum(noResultJepum){
 
 
 function call_recall(){
-    console.log("!!!!!!!!!!!!!!!!!!");
+    console.log("회수, 판매중지 api 작업중");
     var search_key = $("#search_key").attr("search_key");
     var parameters = $("#search_key").attr("parameters");
     var keyId ="8c21dcaf0ba44796ada4"
