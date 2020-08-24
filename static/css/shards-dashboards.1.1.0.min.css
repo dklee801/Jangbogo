@@ -1,3 +1,4 @@
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
 :root {
     --blue: #007bff;
     --indigo: #674eec;
@@ -93,7 +94,6 @@ h3 {
 h4 {
     font-size: 1.563rem;
     line-height: 2rem;
-    text-decoration: underline;
 }
 .h5,
 h5 {
@@ -2007,9 +2007,14 @@ i.material-icons {
 }
 .card-small .card-body,
 .card-small .card-footer,
-.card-small .card-header {
-    padding: 1rem 1rem;
+.card-small .card-header{
+    padding: 1.8rem 1rem;
 }
+
+.m-0{
+    font-size: 20px;
+}
+
 .card-body {
     padding: 1.875rem;
 }
@@ -2024,7 +2029,7 @@ i.material-icons {
     margin-top: -1.09375rem;
 }
 .card-link {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: 'NanumSquare', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 .card-link + .card-link {
     margin-left: 1.875rem;
@@ -2035,7 +2040,7 @@ i.material-icons {
     border-bottom: none;
 }
 .card-header:first-child {
-    border-radius: 0.625rem 0.625rem 0 0;
+    <!-- border-radius: 0.625rem 0.625rem 0 0;-->
 }
 .card-footer {
     padding: 1.09375rem 1.875rem;
@@ -4806,4 +4811,16 @@ html .ql-toolbar .ql-picker .ql-picker-options {
 }
 .error__content p {
     color: #818ea3;
+}
+
+#decorate-div{
+    margin-top: 60px;
+}
+
+.h-100{
+    font-size: 15px;
+}
+
+.mypage-container{
+    margin-top: 80px;
 }
