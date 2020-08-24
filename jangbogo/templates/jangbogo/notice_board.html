@@ -12,20 +12,20 @@
 </head>
 <body class="h-100">
 {% include "header.html" %}
-
+<div id="decorate-div"><span>내 식품 안전 체크 리스트</span></div>
 <div class="notice-board">
+
 <div class="container">
-    <div class="page-header row no-gutters py-4">
-             <h1 class="title">내 식품 안전 체크 리스트</h1>
-     </div>
+
+
     <div class="">
         <div class="col">
-            <div class="card card-small mb-4" id="recall-list-container" >
+            <div class="card card-medium mb-4" id="recall-list-container" >
                 <div class="card-header border-bottom">
                     <h4 class="m-0" align="center">회수·판매중지 제품 리스트</h4>
                 </div>
                 <div class="card-body p-0 pb-3 text-center">
-                    <table class="table mb-0">
+                    <table class="table mb-0 table-striped">
                         <thead class="bg-light">
                         <tr>
                             <th scope="col" class="border-0">번호</th>
@@ -42,10 +42,10 @@
             </div>
             <div class="card card-small mb-4" id="false-ad-list-container">
                 <div class="card-header border-bottom">
-                    <h4 class="m-0" align="center">허위·과대 광고 제품 리스트</h4>
+                    <h4 class="m-0" align="center">과대 광고 제품 리스트</h4>
                 </div>
                 <div class="card-body p-0 pb-3 text-center">
-                    <table class="table mb-0">
+                    <table class="table mb-0 table-striped">
                         <thead class="bg-light">
                         <tr>
                             <th scope="col" class="border-0">제품명</th>
@@ -69,7 +69,7 @@
                     <h4 class="m-0" align="center">유통기한 점검 리스트</h4>
                 </div>
                 <div class="card-body p-0 pb-3 text-center">
-                    <table class="table mb-0">
+                    <table class="table mb-0 table-striped">
                         <thead class="bg-light">
                         <tr>
                             <th scope="col" class="border-0">제품명</th>
@@ -116,7 +116,7 @@
                         </thead>
                         {% for product in hasProductList%}
                         <tbody>
-                        <tr>
+                        <tr class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
                             <td>{{product.id}}</td>
                             <td>{{product.pur_name}}</td>
                             <td>{{product.pur_company}}</td>
