@@ -21,6 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4afb98f0-92e1-47fd-b6fe-93f1e3a3bf66" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jangbogo/templates/users/login_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/templates/users/login_register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/login-register-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/login-register-style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598248225691</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="header fixed">
+      <created>1598249132549</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1598249132549</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,7 +221,8 @@
     <MESSAGE value="add loading gif in product_list.html _200820" />
     <MESSAGE value="my page design update" />
     <MESSAGE value="notice_board delete added" />
-    <option name="LAST_COMMIT_MESSAGE" value="notice_board delete added" />
+    <MESSAGE value="header fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="header fixed" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="198" key="#Inspections" timestamp="1597311612768">
@@ -238,10 +249,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1597312905987" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1598248279780">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1598249142347">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1598248279780" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1598249142347" />
     <state x="92" y="92" width="1736" height="856" key="dock-window-1" timestamp="1597296101310">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
