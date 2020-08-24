@@ -21,14 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4afb98f0-92e1-47fd-b6fe-93f1e3a3bf66" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jangbogo/templates/jangbogo/notice_board.html" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/templates/jangbogo/notice_board.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jangbogo/templates/jangbogo/product_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/templates/jangbogo/product_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jangbogo/views/users_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/views/users_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jangbogo_project/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo_project/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/product-list-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/product-list-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/notice_board.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/notice_board.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/product-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/product-list.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598237932934</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="notice_board delete added">
+      <created>1598248225691</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1598248225691</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,7 +210,8 @@
     <MESSAGE value="modify css _200820" />
     <MESSAGE value="add loading gif in product_list.html _200820" />
     <MESSAGE value="my page design update" />
-    <option name="LAST_COMMIT_MESSAGE" value="my page design update" />
+    <MESSAGE value="notice_board delete added" />
+    <option name="LAST_COMMIT_MESSAGE" value="notice_board delete added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="198" key="#Inspections" timestamp="1597311612768">
@@ -238,10 +238,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1597312905987" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597906679885">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1598248279780">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597906679885" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1598248279780" />
     <state x="92" y="92" width="1736" height="856" key="dock-window-1" timestamp="1597296101310">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
