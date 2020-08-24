@@ -22,8 +22,7 @@
     <list default="true" id="4afb98f0-92e1-47fd-b6fe-93f1e3a3bf66" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/notice_board.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/notice_board.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/product-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/product-list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jangbogo/templates/users/mypage.html" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/templates/users/mypage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +59,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -71,13 +70,6 @@
     <property name="settings.editor.selected.configurable" value="stylesheet.code.style.group" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\python-Django\JangbogoProject\static\img" />
-      <recent name="C:\python-Django\JangbogoProject\static\js" />
-      <recent name="C:\python-Django\JangbogoProject\static\css" />
-      <recent name="C:\python-Django\JangbogoProject\static" />
-      <recent name="C:\python-Django\JangbogoProject\jangbogo\static\js" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\python-Django\JangbogoProject\static\css" />
       <recent name="C:\python-Django\JangbogoProject\jangbogo\static\img" />
@@ -85,7 +77,15 @@
       <recent name="C:\python-Django\JangbogoProject\jangbogo\static" />
       <recent name="C:\python-Django\JangbogoProject" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\python-Django\JangbogoProject\static\img" />
+      <recent name="C:\python-Django\JangbogoProject\static\js" />
+      <recent name="C:\python-Django\JangbogoProject\static\css" />
+      <recent name="C:\python-Django\JangbogoProject\static" />
+      <recent name="C:\python-Django\JangbogoProject\jangbogo\static\js" />
+    </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -240,9 +240,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597308320226" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597828763458">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1598235074705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597828763458" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598235074705" />
   </component>
 </project>
