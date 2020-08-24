@@ -3,8 +3,10 @@
         <input type="hidden" value="{{ request.session.user }}"/>
         <div class="container" >
             <div id="navbar-collapse" >
-                <a href="http://localhost:8000/" class="navbar-brand"><img id="logo-img" src="/static/img/logo_h_w.png"/></a>
+                <a href="{% url 'home' %}" class="navbar-brand"><img id="logo-img" src="/static/img/logo_h_w.png"/></a>
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'home' %}">Search</a></li>
+                    <li><a>ㅣ</a></li>
                     <li><a href="/about_us/">About Us</a></li>
                     <li><a>ㅣ</a></li>
                     {% if request.session.user %}

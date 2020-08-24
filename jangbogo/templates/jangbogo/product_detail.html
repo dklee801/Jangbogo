@@ -52,8 +52,21 @@
 <body class="product-page">
 {% include "header.html" %}
 
+<div id="decorate-div"><span>Search |</span><span> 식품안전나라, 공공데이터 API를 이용하여 제품정보를 조회할 수 있습니다.</span></div>
+<div class="container">
+    <div class="mb20">
+        <form class="input-group" id="search_key" action="{% url 'jangbogo:productListSearch' %}" method="post" search_key="{{search_key}}" parameters="{{parameters}}">
+            {% csrf_token %}
+            <input type="text" placeholder="search for" class="form-control" name="keyword" value="{{search_key}}"><span class="input-group-btn">
+            <button type="submit" class="btn btn-search">검색</button>
+            </span>
+        </form>
+    </div>
+</div>
+
 <div class="main-container col1-layout">
     <div class="container">
+
         <div class="row">
             <div class="col-main">
                 <div class="product-view-area">
@@ -71,7 +84,7 @@
                     <div class="col-xs-12 col-sm-7 col-lg-7 col-md-7 product-details-area">
 
                         <div class="product-name">
-                            <p class="availability in-stock pull-right"> <span>식품 위해</span></p>
+                            <p class="availability in-stock pull-right"> <span>위해</span></p>
                             <h1 id="search_name">{{ search_name }}</h1>
                         </div>
                         <div class="price-box">
@@ -102,8 +115,9 @@
                             <form action="#" method="post">
                                 {% csrf_token %}
                                 <label>구매일자: <input id="pur_date" type="date"/></label>
+                                <br>
                                 <label>제조일자: <input id="jejo_date" type="date"/></label>
-                                <input value="Add to Bucket" type="submit"/>
+                                <input value="My bucket에 추가" type="submit"/>
                             </form>
                         </div>
                     </div>

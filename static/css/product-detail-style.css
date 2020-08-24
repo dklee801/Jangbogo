@@ -4931,7 +4931,6 @@ h2.saider-bar-title {
 	display: block;
 	font-size: 13px;
 	font-weight: 700;
-	border-bottom: 1px #ddd solid;
 	margin-bottom: 14px;
 	padding-bottom: 5px
 }
@@ -5536,6 +5535,12 @@ ul.products-list {
 	left: 15px !important
 }
 }
+
+.mb20 {
+    margin: 30px 0px
+    }
+
+
 .product-view-area {
 	margin: auto;
 	position: relative;
@@ -5783,7 +5788,7 @@ ul.products-list {
 }
 .availability.in-stock span {
 	color: #fff;
-	background-color: #5cb85c;
+	background-color: #FF0000;
 	padding: 5px 12px;
 	font-size: 12px;
 	font-weight: 900
@@ -5799,7 +5804,6 @@ ul.products-list {
 	display: block;
 	margin: 0 0 10px;
 	padding: 0 0 5px;
-	border-bottom: 1px solid #e6e6e6
 }
 .product-view-area .product-details-area .price-box .old-price {
 	margin-right: 5px;
@@ -5819,7 +5823,7 @@ ul.products-list {
 }
 .product-view-area .product-details-area .price {
 	font-size: 28px;
-	color: #4caf50;
+	color: #007565;
 	font-weight: 900
 }
 .cart-plus-minus .qty {
@@ -5898,7 +5902,6 @@ ul.products-list {
 	display: inline-block;
 	width: 100%;
 	border-top: 1px #e5e5e5 solid;
-	border-bottom: 1px #e5e5e5 solid;
 	padding: 15px 0px;
 	margin-bottom: 15px
 }
@@ -6047,7 +6050,7 @@ button.button.pro-add-to-cart span i {
 	background: #fff
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
-	background: #4caf50;
+	background: #007565;
 	border: 1px solid #4caf50;
 	color: #fff
 }
