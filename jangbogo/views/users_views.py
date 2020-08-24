@@ -167,12 +167,16 @@ def addProduct(request, user_id):
     return HttpResponse(json.dumps(context), content_type="application/json")
 
 def deleteProduct(request, user_id, product_id):
-    return true
+    product_selected = Purchase.objects.get(id=product_id)
+    product_selected.delete()
+
+    return redirect('users:noticeBoard', user_id)
 
 def noticeBoard(request, user_id):
     if request.session.get('user'):
         user = get_object_or_404(User, pk=user_id)
         hasProductList = user.purchase_set.all()
+        print(hasProductList);
         context = {
             'hasProductList' : hasProductList,
         }

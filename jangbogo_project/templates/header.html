@@ -7,7 +7,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/about_us/">About Us</a></li>
                     <li><a>ㅣ</a></li>
-                    <li><a href="{% url 'users:noticeBoard' 1 %}">Bucket</a></li>
+                    <li><a href="{% url 'users:noticeBoard' request.session.user %}">Bucket</a></li>
                     <li><a>ㅣ</a></li>
                     {% if request.session.user %}
                         <li><a href="{% url 'users:userInfo' request.session.user %}"><U>{{request.session.username}}</U></a></li>

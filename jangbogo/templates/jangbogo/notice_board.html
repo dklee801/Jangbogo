@@ -92,7 +92,7 @@
     <!-- End Default Light Table -->
     <!-- Default Dark Table -->
 </div>
-    <div class="has-product-container container" url="{% url 'users:hasProduct' 1 %}" >
+    <div class="has-product-container container" url="{% url 'users:hasProduct' request.session.user %}" noticeboard_id="{{request.session.user}}">
         <div class="col">
             <div class="card card-big overflow-hidden mb-4" >
                 <div class="card-header border-bottom">
@@ -111,6 +111,7 @@
                             <th scope="col" class="border-bottom-0">구매일자</th>
                             <th scope="col" class="border-bottom-0">제조일자</th>
                             <th scope="col" class="border-bottom-0">유통기한</th>
+                            <th scope="col" class="border-bottom-0">삭제</th>
                         </tr>
                         </thead>
                         {% for product in hasProductList%}
@@ -122,6 +123,8 @@
                             <td>{{product.pur_date|date:'Y-m-d'}}</td>
                             <td>{{product.pur_jejodate|date:'Y-m-d'}}</td>
                             <td>{{product.pur_expire_period}}</td>
+                            <td><a href="{% url 'users:deleteProduct' request.session.user product.id %}" class="btn btn-danger btn-sm">삭제</a>
+                            </td>
                         </tr>
                         </tbody>
                         {% endfor %}
