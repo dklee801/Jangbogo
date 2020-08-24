@@ -6,20 +6,19 @@
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/css/custom.css" rel="stylesheet">
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="/static/css/shards-dashboards.1.1.0.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/product-list-style.css">
 
 </head>
 <body class="h-100">
 {% include "header.html" %}
-<div class="mypage-form">
+<div id="decorate-div"><span>My Info |</span><span> 나의 회원 정보를 수정할 수 있습니다.</span></div>
 
+<div class="container">
 <div class="main-navbar sticky-top bg-white">
 
     <div class="main-content-container container-fluid px-4">
         <!-- Page Header -->
         <div class="page-header row no-gutters py-4">
-            <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
-                <h3 class="page-title">내 정보</h3>
-            </div>
         </div>
         <!-- End Page Header -->
         <!-- Default Light Table -->
@@ -36,8 +35,14 @@
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item px-4">
                             <div class="progress-wrapper">
+                                <strong class="text-muted d-block mb-2">&nbsp;</strong>
+                            </div>
+                            <div class="progress-wrapper">
                                 <strong class="text-muted d-block mb-2">가입일</strong>
                                 {{user.user_registerdate}}
+                            </div>
+                            <div class="progress-wrapper">
+                                <strong class="text-muted d-block mb-2">&nbsp;</strong>
                             </div>
                         </li>
                     </ul>
@@ -45,7 +50,7 @@
             </div>
             <div class="col-lg-8">
                 <div class="card card-small mb-4">
-                    <div class="card-header border-bottom">
+                    <div class="card-header border-bottom" align="center">
                         <h6 class="m-0">내 정보 수정하기</h6>
                         {% if error_message %}
                         <h6 style="color:red" align="center"> {{error_message}} </h6>
@@ -67,7 +72,7 @@
                                                 <input type="email" class="form-control" id="feEmailAddress" placeholder="Email" name="email" value={{user.user_email}}>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="fePassword">변경 후 비밀번호</label>
+                                                <label for="fePassword">변경 후 비밀번호 입력</label>
                                                 <input type="password" class="form-control" id="fePassword" placeholder="Password" name="password">
                                             </div>
                                             <div class="form-group col-md-6">
@@ -75,13 +80,18 @@
                                                 <input type="password" class="form-control" id="fePassword_re" placeholder="Password" name="re_password">
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-accent">정보 수정</button>
+                                        <button type="submit" class="btn btn-accent" style="float:right">정보 수정</button>
                                     </form>
                                 </div>
                             </div>
                         </li>
                     </ul>
-                    <div class="card-header border-bottom">
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="card card-small mb-4">
+                    <div class="card-header border-bottom" align="center">
                         <h6 class="m-0">회원 탈퇴하기</h6>
                         {% if error_message %}
                         <h6 style="color:red" align="center"> {{error_message}} </h6>
@@ -89,23 +99,27 @@
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item p-3">
-                            <div>
+                            <div class="row">
                                 <div class="col">
                                     <form action="{% url 'users:userDelete' request.session.user %}" method="post">
                                         {% csrf_token %}
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
-                                                <label for="fePassword">현재 비밀번호</label>
+                                                <label for="fePassword">현재 비밀번호 입력</label>
                                                 <input type="password" class="form-control" id="fePassword2" placeholder="Password" name="current_password2">
                                             </div>
-                                        </div>
-                                        <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="fePassword">비밀번호 확인</label>
                                                 <input type="password" class="form-control" id="fePassword3" placeholder="Password" name="current_repassword">
                                             </div>
+                                            <div class="form-group col-md-6">
+                                                &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
                                         </div>
-                                        <button type="submit" class="btn btn-danger">회원 탈퇴</button>
+                                            <button type="submit" class="btn btn-danger" style="float:right">회원 탈퇴</button>
                                     </form>
                                 </div>
                             </div>

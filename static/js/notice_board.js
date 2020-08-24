@@ -54,7 +54,7 @@ function closeLoadingWithMask() {
 }
 
 function getHasProductList(){
-    var userId = 1;
+    var userId = $(".has-product-container").value();
     var container = $(".has-product-container");
     var apiKey = "3d5e3cfb86a24de7a5b6"
     $.ajax({
