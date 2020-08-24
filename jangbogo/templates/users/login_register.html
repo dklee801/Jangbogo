@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>로그인 / 회원가입 폼 템플릿</title>
-    <link rel="stylesheet" href="../../../static/css/login-register-style.css">
+    <link rel="stylesheet" href="/static/css/login-register-style.css">
 </head>
 <body>
 {% if error_message %}
@@ -13,14 +13,14 @@
     <div class="form-wrap">
         <div class="button-wrap">
             <div id="btn"></div>
-            <button type="button" class="togglebtn" onclick="login()">LOG IN</button>
-            <button type="button" class="togglebtn" onclick="register()">REGISTER</button>
+            <button type="button" class="togglebtn" id="loginfont" onclick="login()">LOG IN</button>
+            <button type="button" class="togglebtn" id="registerfont" onclick="register()">REGISTER</button>
         </div>
          <form id="login" method = "post" action="{% url 'users:logIn' %}" class="input-group">
             {% csrf_token %}
             <input type="text" class="input-field" name = "user_name" placeholder="User name" required>
             <input type="password" class="input-field" name = "user_password"  placeholder="Enter Password" required>
-            <input type="checkbox" class="checkbox"><span>Remember Password</span>
+            <br><br>
             <button class="submit">Login</button>
         </form>
         <form id="register" method="post" action="{% url 'users:signUp'%}" class="input-group">
@@ -29,27 +29,39 @@
             <input type="email" class="input-field" name="user_email" placeholder="Your Email" required>
             <input type="password" class="input-field" name="user_password1" placeholder="Enter Password" required>
             <input type="password" class="input-field" name="user_password2" placeholder="Enter Password Again" required>
-            <input type="checkbox" class="checkbox"><span>Terms and conditions</span>
+            <br><br>
             <button class="submit">REGISTER</button>
         </form>
     </div>
+
+    <div class="form-wrap">
+        <img src="/static/img/homeimage_1.png" width="100%">
+        <img src="/static/img/logo_h_w.png" width="80%">
+    </div>
 </div>
+
+
 <script>
     var x = document.getElementById("login");
     var y = document.getElementById("register");
     var z = document.getElementById("btn");
-
+    login_font = document.getElementById("loginfont")
+    register_font = document.getElementById("registerfont")
 
     function login(){
         x.style.left = "50px";
         y.style.left = "450px";
         z.style.left = "0";
+        login_font.style.color = "white";
+        register_font.style.color = "black";
     }
 
     function register(){
         x.style.left = "-400px";
         y.style.left = "50px";
         z.style.left = "110px";
+        login_font.style.color = "black";
+        register_font.style.color = "white";
     }
 </script>
 </body>
