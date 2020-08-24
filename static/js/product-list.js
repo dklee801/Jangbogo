@@ -30,6 +30,9 @@ $('.tab_menu_btn4').on('click',function(){
 });
 
 
+
+
+
 // form - CSRF
 function getCookie(name) {
     var cookieValue = null;
@@ -93,11 +96,13 @@ function closeLoadingWithMask() {
     $('#mask, #loadingImg').remove();
 }
 
+var search_key = $("#search_key").attr("search_key");
+var parameters = $("#search_key").attr("parameters");
+var keyId ="8c21dcaf0ba44796ada4"
+
+
 function call_jepum(){
     LoadingWithMask();
-
-    var search_key = $("#search_key").attr("search_key");
-    var keyId ="8c21dcaf0ba44796ada4"
     var serviceId = "I1250"
     var dataType = "json"
     var startIdx = "1"
@@ -195,8 +200,6 @@ function call_jepum(){
 
 function call_youngyangjepum(noResultJepum){
     LoadingWithMask();
-    var search_key = $("#search_key").attr("search_key");
-    var keyId ="8c21dcaf0ba44796ada4"
     var serviceId = "I0030"
     var dataType = "json"
     var startIdx = "1"
@@ -298,9 +301,6 @@ function call_youngyangjepum(noResultJepum){
 
 function call_recall(){
     console.log("회수, 판매중지 api 작업중");
-    var search_key = $("#search_key").attr("search_key");
-   // var parameters = $("#search_key").attr("parameters");
-    var keyId ="8c21dcaf0ba44796ada4"
 
     $("#tbody_recall").empty();
     $.ajax({
@@ -414,8 +414,7 @@ function call_recall(){
 }
 
 function call_fake(){
-    var search_key = $("#search_key").attr("search_key");
-    var parameters = $("#search_key").attr("parameters");
+
     $("#tbody_fake").empty();
     $.ajax({
         async : true,
@@ -460,12 +459,13 @@ function loadingImgHandler(){
 }
 
 function init() {
-    call_jepum();
-    //call_youngyangjepum();
-    call_recall();
-    call_fake();
+    if (search_key !== '') {
+        call_jepum();
+        call_recall();
+        call_fake();
+    }
+
     $(".tab_menu_btn2").on("click", loadingImgHandler);
-    //$(".tab_menu_btn3").on("click", call_fake);
 }
 
 init();
