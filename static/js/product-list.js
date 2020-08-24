@@ -59,14 +59,14 @@ function LoadingWithMask() {
     //화면의 높이와 너비를 구합니다.
     var maskHeight = $(document).height();
     var maskWidth  = window.document.body.clientWidth;
-    var gif = '/static/img/loadingImg.gif'
+    var gif = '/static/img/loading_icon.gif'
 
     //화면에 출력할 마스크를 설정해줍니다.
     var mask       ="<div id='mask' style='position:absolute; z-index:9000; background-color:#000000; display:flex; align-items: center; justify-content: center; left:0; top:0;'></div>";
     var loadingImg ='';
 
     loadingImg +="<div id='loadingImg'>";
-    loadingImg +=" <img src='"+ gif +"' style=' display: block; margin: 0px auto; margin-top: -50px; opacity : 0.3;'/>";
+    loadingImg +=" <img src='"+ gif +"' style=' display: block; margin: 0px auto; margin-top: -50px;'/>";
     loadingImg +="</div>";
 
     //화면에 레이어 추가
@@ -188,7 +188,7 @@ function call_jepum(){
         call_youngyangjepum(noResultJepum);
         },
         error : function(error) {
-            alert("실패")
+            alert("call_jepum 실패")
         }
     })
 }
@@ -290,7 +290,7 @@ function call_youngyangjepum(noResultJepum){
             }
         },
         error : function(error) {
-            alert("실패")
+            alert(" call_youngyangjepum 실패")
         }
     })
 }
@@ -299,7 +299,7 @@ function call_youngyangjepum(noResultJepum){
 function call_recall(){
     console.log("회수, 판매중지 api 작업중");
     var search_key = $("#search_key").attr("search_key");
-    var parameters = $("#search_key").attr("parameters");
+   // var parameters = $("#search_key").attr("parameters");
     var keyId ="8c21dcaf0ba44796ada4"
 
     $("#tbody_recall").empty();
@@ -309,7 +309,7 @@ function call_recall(){
         success: function(result){
         noResult = true;
             $.each(result.I0490.row, function(idx,item) {
-                if (item["PRDTNM"] === search_key){
+                if (item["PRDTNM"].includes(search_key)){
                     noResult = false;
                     var tr = $("<tr></tr>") // <tr></tr>
                     var productTd = $("<td></td>").text(item["PRDTNM"]) // 제품명
