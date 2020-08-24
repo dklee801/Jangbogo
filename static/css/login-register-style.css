@@ -25,9 +25,17 @@
     background: #fff;
     padding: 5px;
     overflow: hidden;
-    border: 1px solid black;
-    box-shadow: 0 2px 0 rgba(90, 97, 105, 0.11), 0 4px 8px rgba(90, 97, 105, 0.12), 0 10px 10px rgba(90, 97, 105, 0.06), 0 7px 70px rgba(90, 97, 105, 0.1);
+    border: none;
+    box-shadow: 9px 10px 13px 0px rgba(8,8,8,0.42);
+
 }
+
+.form-wrap img{
+    padding-top: 5%;
+    width:90%
+}
+
+
 .button-wrap {
     width: 230px;
     margin: 35px auto;
@@ -101,4 +109,8 @@ span {
 }
 #register {
     left: 450px;
+}
+
+#loginfont{
+    color: white;
 }
