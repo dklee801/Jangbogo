@@ -8,116 +8,107 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <!--Bootstrap core CSS-->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/static/css/custom.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/about-us.css">
+
 </head>
 <body>
 {% include "header.html" %}
-
-<div class="about-us-container">
-    <br><br><br><br>
-
+<div id="decorate-div"><span>Search |</span><span> 식품안전나라, 공공데이터 API를 이용하여 제품정보를 조회할 수 있습니다.</span></div>
+<div class="container">
 
 <!-- Page Content -->
-<div class="container">
-    <div class="album py-5 bg-light">
-        <div class="card-container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="/static/img/homeimage_1.png" width="100%">
-                        <!--                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
-                        <div class="card-body">
-                            <p class="card-text" style="font-size: x-large" align="center">식품 정보 검색</p>
-                            <p class="card-text" align="center">식품/건기식 구매시에 안전성 검색 서비스</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                            </div>
-                            <div class="card-footer" align="right">
-                                {% if request.session.user %}
-                                <a href="http://localhost:8000/users/{{request.session.user}}/notice_board/" class="btn btn-about-us">지금 시작하기!</a>
-                                {% else %}
-                                <a href="http://localhost:8000/users/login_register/" class="btn btn-about-us">지금 시작하기!</a>
-                                {% endif %}
-                            </div>
-                        </div>
+<div class="about-us-container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="about-us-card mb-4 shadow-sm">
+                    <img src="/static/img/homeimage_1.png" width="100%">
+                    <!--                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
+                    <div class="card-body">
+                        <p class="card-text" style="font-size: x-large" align="center">식품 정보 검색</p>
+                        <p class="card-text" align="center">식품/건기식 구매시에 안전성 검색 서비스</p>
+                    </div>
+                    <div class="card-footer">
+                            <a href="{% url 'jangbogo:productListSearch' %}" class="btn-about-us">지금 시작하기!</a>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="/static/img/homeimage_2.png" width="100%">
-                        <!--                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
-                        <div class="card-body">
-                            <p class="card-text" style="font-size: x-large" align="center">유해 식품 알림</p>
-                            <p class="card-text" align="center">놓치기 쉬운 실시간 유해 식품 알림 서비스</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                            </div>
-                            <div class="card-footer" align="right">
-                                {% if request.session.user %}
-                                <a href="http://localhost:8000/users/{{request.session.user}}/notice_board/" class="btn btn-about-us">지금 시작하기!</a>
-                                {% else %}
-                                <a href="http://localhost:8000/users/login_register/" class="btn btn-about-us">지금 시작하기!</a>
-                                {% endif %}
-                            </div>
-                        </div>
+            </div>
+            <div class="col-md-4">
+                <div class="about-us-card mb-4 shadow-sm">
+                    <img src="/static/img/homeimage_2.png" width="100%">
+                    <!--                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
+                    <div class="card-body">
+                        <p class="card-text" style="font-size: x-large" align="center">유해 식품 알림</p>
+                        <p class="card-text" align="center">놓치기 쉬운 실시간 유해 식품 알림 서비스</p>
+                    </div>
+                    <div class="card-footer">
+                            {% if request.session.user %}
+                            <a href="http://localhost:8000/users/{{request.session.user}}/notice_board/" class="btn-about-us">지금 시작하기!</a>
+                            {% else %}
+                            <a href="http://localhost:8000/users/login_register/" class="btn-about-us">지금 시작하기!</a>
+                            {% endif %}
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="/static/img/homeimage_3.jpg" width="100%">
-                        <!--                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
-                        <div class="card-body">
-                            <p class="card-text" style="font-size: x-large" align="center">유통 기한 관리</p>
-                            <p class="card-text" align="center">관리하기 힘든 유통 기한 관리 서비스</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                            </div>
-                            <div class="card-footer" align="right">
-                                {% if request.session.user %}
-                                <a href="http://localhost:8000/users/{{request.session.user}}/notice_board/" class="btn btn-about-us">지금 시작하기!</a>
-                                {% else %}
-                                <a href="http://localhost:8000/users/login_register/" class="btn btn-about-us">지금 시작하기!</a>
-                                {% endif %}
-                            </div>
-                        </div>
+            </div>
+            <div class="col-md-4">
+                <div class="about-us-card mb-4 shadow-sm">
+                    <img src="/static/img/homeimage_3.jpg" width="100%">
+                    <!--                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
+                    <div class="card-body">
+                        <p class="card-text" style="font-size: x-large" align="center">유통 기한 관리</p>
+                        <p class="card-text" align="center">관리하기 힘든 유통 기한 관리 서비스</p>
+                    </div>
+                    <div class="card-footer">
+                            {% if request.session.user %}
+                            <a href="http://localhost:8000/users/{{request.session.user}}/notice_board/" class="btn-about-us">지금 시작하기!</a>
+                            {% else %}
+                            <a href="http://localhost:8000/users/login_register/" class="btn-about-us">지금 시작하기!</a>
+                            {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row second-row">
+            <div class="col-md-8 mb-5">
+                <h2>What We Do</h2>
+                <div class="about-us-card mb-4 shadow-sm">
+                    <p>장보고는 당신의 안전하고 <strong>건강한 식품 구매</strong>, <strong>놓치기 쉬운 유통기한 관리,</strong> 그리고 실시간으로 업데이트 되는 <strong>유해 식품 지정 알림 서비스</strong>를 제공하는 개인 맞춤형 웹 서비스 입니다. </p>
+                    <br>
+                    <p>우리가 구매하는 <strong>식품/건강기능식품이 정말로 안전할까요?</strong> 혹시 제품이나 제조업체가 문제가 있을까 걱정되지 않으신가요? 집에서 보관하고 섭취하는
+                    식품 및 건강기능식품이 <orange>어느 날 갑자기 유해 식품</orange>으로 지정되거나 <orange>허위/과대 광고</orange>로 제재를 받는 일이 생각보다 자주 일어나고 있습니다.</p>
+                    <br>
+                    <p>
+                        장보고를 통해 간편하게 검색하고, 관리해보세요.
+                    </p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="col-md-4 mb-5">
+                    <div class="about-us-card mb-4 shadow-sm logo-img">
+                        <img src="/static/img/janbogo_logo_01.png">
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="about-us-card mb-4 shadow-sm">
+                        <address>
+                            <h4><strong>Team Jangbogo</strong></h4>
+                            <br>서울 강남구 삼성로 534
+                            <br>SAC아트센터 06166
+                        </address>
+                        <address>
+                            <abbr title="Phone">P:</abbr>
+                            (123) 456-7890
+                            <br>
+                            <abbr title="Email">E:</abbr>
+                            <a href="mailto:#">jangbogo@jangbogo.com</a>
+                        </address>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-8 mb-5">
-            <h2>What We Do</h2>
-            <hr>
-            <br>
-            <p>장보고는 당신의 안전하고 건강한 식품 구매 뿐 아니라 놓치기 쉬운 유통기한 관리, 그리고 실시간으로 업데이트 되는 유해 식품 지정 알림 서비스를 포함한 개인 맞춤형 웹 서비스 입니다. </p>
-            <p>당신이 구매하는 식품/건강기능식품이 정말로 안전할까요? 혹시 제품이나 제조업체가 제제 받은 이력이 있을까 걱정되지 않으신가요? 장보고를 사용하면 간단한 검색으로 그런 걱정을 쉽게 해결 가능합니다.</p>
-            <p>당신이 집에서 보관하는 식품 및 섭취하는 건강기능식품이 어느 날 갑자기 유해 식품으로 지정되거나 허위나 과대 광고로 제제를 받을 수 있고, 이를 직접 뉴스를 통해 접하거나 찾아보지 않는 이상 해당 식품을 그대로 섭취할 수 있습니다. 장보고를 사용하면 걱정하실 필요 없습니다.</p>
-            <div class="card-footer" align="right">
-                {% if request.session.user %}
-                <a href="http://localhost:8000/users/{{request.session.user}}/notice_board/" class="btn btn-about-us">지금 시작하기!</a>
-                {% else %}
-                <a href="http://localhost:8000/users/login_register/" class="btn btn-about-us">지금 시작하기!</a>
-                {% endif %}
-            </div>
-        </div>
-        <div class="col-md-4 mb-5">
-            <h2>Contact Us</h2>
-            <hr>
-            <img src="/static/img/janbogo_logo_01.png" align="center">
-            <address>
-                <strong>Team Jangbogo</strong>
-                <br>서울 강남구 삼성로 534
-                <br>SAC아트센터 06166
-                <br>
-            </address>
-            <address>
-                <abbr title="Phone">P:</abbr>
-                (123) 456-7890
-                <br>
-                <abbr title="Email">E:</abbr>
-                <a href="mailto:#">jangbogo@jangbogo.com</a>
-            </address>
-        </div>
-    </div>
-</div>
 </div>
 {% include "footer.html" %}
 </body>
