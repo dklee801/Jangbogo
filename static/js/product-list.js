@@ -391,7 +391,8 @@ function call_recall(){
                     tr.append(rtrRtrTd)
                     tr.append(buttonTd)
 
-                    $("#tbody_recall").append(tr)
+                    $("#tbody_recall").append(tr);
+                    closeLoadingWithMask();
                 }
 
 
@@ -443,6 +444,7 @@ function call_fake(){
                 tr.append(fakelawTd)
 
                 $("#tbody_fake").append(tr)
+
             })
         },
         error : function(error) {
@@ -451,12 +453,18 @@ function call_fake(){
     })
 }
 
+function loadingImgHandler(){
+    if ($("#tbody_recall > tr").length === 0){
+        LoadingWithMask();
+    };
+}
+
 function init() {
     call_jepum();
     //call_youngyangjepum();
     call_recall();
     call_fake();
-    //$(".tab_menu_btn2").on("click", call_recall);
+    $(".tab_menu_btn2").on("click", loadingImgHandler);
     //$(".tab_menu_btn3").on("click", call_fake);
 }
 
