@@ -5550,6 +5550,7 @@ ul.products-list {
 	border: 1px #e6e6e6 solid;
 	display: inline-block;
 	padding: 22px 22px 0px;
+    width: -webkit-fill-available;
 }
 @media (max-width:480px) {
 .product-view-area {

@@ -52,18 +52,6 @@
 <body class="product-page">
 {% include "header.html" %}
 
-<div id="decorate-div"><span>Search |</span><span> 식품안전나라, 공공데이터 API를 이용하여 제품정보를 조회할 수 있습니다.</span></div>
-<div class="container">
-    <div class="mb20">
-        <form class="input-group" id="search_key" action="{% url 'jangbogo:productListSearch' %}" method="post" search_key="{{search_key}}" parameters="{{parameters}}">
-            {% csrf_token %}
-            <input type="text" placeholder="search for" class="form-control" name="keyword" value="{{search_key}}"><span class="input-group-btn">
-            <button type="submit" class="btn btn-search">검색</button>
-            </span>
-        </form>
-    </div>
-</div>
-
 <div class="main-container col1-layout">
     <div class="container">
 
@@ -99,18 +87,14 @@
                             <!--<p> 회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수회수-->
                             <p>{{ search_rtrvlprvns }}</p>
 
-                        </div>
-                        <div class="product-color-size-area">
-                            <div class="color-area">
-                                <h2 class="saider-bar-title">회수 폐기 방법</h2>
-                                <div class="color">
-                                    <ul>
-                                        {{ search_rtrvlmthd }}
-                                    </ul>
-                                </div>
+                            <h2 class="saider-bar-title">회수 폐기 방법</h2>
+                            <div class="color">
+                                <ul>
+                                    {{ search_rtrvlmthd }}
+                                </ul>
                             </div>
-
                         </div>
+
                         <div class="product-variation">
                             <form action="#" method="post">
                                 {% csrf_token %}
@@ -135,17 +119,17 @@
                                 <div class="tab-pane fade in active" id="description">
                                     <div class="std">
                                         <p><strong>{{ search_name }}</strong></p>
-                                        <p>회수사유:{{ search_rtrvlprvns }}</p>
-                                        <p>포장단위:{{ search_frmlcunit }}</p>
-                                        <p>제조일자:{{ search_jejodate }}</p>
-                                        <p>회수방법:{{ search_rtrvlmthd }}</p>
-                                        <p id="search_expire_period">유통기한:{{ search_expire_period }}</p>
-                                        <p>식품분류:{{ search_prdlst_type }}</p>
-                                        <p id="search_prdlst_cd">품목코드:{{ search_prdlst_cd }}</p>
-                                        <p>회수.판매중지 일련번호:{{ search_rtrvldsuse_seq }}</p>
-                                        <p>품목제조보고번호:{{ search_prdlst_report_no }}</p>
-                                        <p>회수등급:{{ search_rtrvl_grdcd_nm }}</p>
-                                        <p>품목유형(품목코드명):{{ search_prdlst_cd_nm }}</p>
+                                        <p>회수사유:  {{ search_rtrvlprvns }}</p>
+                                        <p>포장단위:  {{ search_frmlcunit }}</p>
+                                        <p>제조일자:  {{ search_jejodate }}</p>
+                                        <p>회수방법:  {{ search_rtrvlmthd }}</p>
+                                        <p id="search_expire_period">유통기한:  {{ search_expire_period }}</p>
+                                        <p>식품분류:  {{ search_prdlst_type }}</p>
+                                        <p id="search_prdlst_cd">품목코드:  {{ search_prdlst_cd }}</p>
+                                        <p>회수.판매중지 일련번호:  {{ search_rtrvldsuse_seq }}</p>
+                                        <p>품목제조보고번호:  {{ search_prdlst_report_no }}</p>
+                                        <p>회수등급:  {{ search_rtrvl_grdcd_nm }}</p>
+                                        <p>품목유형(품목코드명):  {{ search_prdlst_cd_nm }}</p>
                                     </div>
                                 </div>
 

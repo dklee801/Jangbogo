@@ -51,6 +51,8 @@ button {
     display:none;
     padding:20px;
 
+    background-color: #fff;
+
 }
 .tab_box.on {
     display:block;
