@@ -21,7 +21,7 @@
             <br><br>
             <button class="submit">Login</button>
         </form>
-        <form id="register" method="post" action="{% url 'users:signUp'%}" class="input-group">
+        <form id="register" method="post" action="{% url 'users:signUp'%}" class="input-group" error_message="{{signup_error_message}}">
             {% csrf_token %}
             <p style="color:red"> {{signup_error_message}} </p>
             <input type="text" class="input-field" name="user_name" placeholder="User name or Email" required>

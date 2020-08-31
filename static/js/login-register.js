@@ -4,6 +4,7 @@ var z = document.getElementById("btn");
 login_font = document.getElementById("loginfont")
 register_font = document.getElementById("registerfont")
 
+
 function login(){
     x.style.left = "50px";
     y.style.left = "450px";
@@ -19,3 +20,12 @@ function register(){
     login_font.style.color = "black";
     register_font.style.color = "white";
 }
+
+function init() {
+    console.log($("#register").attr("error_message"))
+    if ($("#register").attr("error_message") !== '') {
+        register()
+    }
+}
+
+init();
