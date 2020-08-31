@@ -23,6 +23,7 @@
         </form>
         <form id="register" method="post" action="{% url 'users:signUp'%}" class="input-group">
             {% csrf_token %}
+            <p style="color:red"> {{signup_error_message}} </p>
             <input type="text" class="input-field" name="user_name" placeholder="User name or Email" required>
             <input type="email" class="input-field" name="user_email" placeholder="Your Email" required>
             <input type="password" class="input-field" name="user_password1" placeholder="Enter Password" required>

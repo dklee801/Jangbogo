@@ -392,10 +392,7 @@ function call_recall(){
                     tr.append(buttonTd)
 
                     $("#tbody_recall").append(tr);
-                    closeLoadingWithMask();
                 }
-
-
             })
           if (noResult === true){
             var tr = $("<tr></tr>");
@@ -404,7 +401,7 @@ function call_recall(){
             $("#tbody_recall").append(tr);
           }
 
-
+        closeLoadingWithMask();
         },
         error: function(error){
             console.log("에러났엉 ㅠ");
@@ -453,7 +450,7 @@ function call_fake(){
 }
 
 function loadingImgHandler(){
-    if ($("#tbody_recall > tr").length === 0){
+    if ($("#tbody_recall > tr").length === 0 && search_key !== ''){
         LoadingWithMask();
     };
 }

@@ -7,7 +7,9 @@
 
 body,html{
     width:100%;
-    height:100%
+    height:100%;
+    padding: 0px;
+    margin: 0px;
 }
 
 body {
@@ -54,19 +56,8 @@ section{padding:75px 0 100px;}
     width: 100%;
     box-shadow: 0 0 8px 0 rgba(88, 88, 88, 0.19);
 }
-.affix {
-    animation: 1s ease 0s normal both 1 running slideInDown;
-    background-color: #007565;
-    box-shadow: 0 0 8px 0 rgba(88, 88, 88, 0.19);
-    padding: 0.75em 0;
-    position: fixed;
-    z-index: 1000;
-}
-
 .navbar-default .navbar-nav li a {color:#606060;font-size:18px; font-weight:600}
-.navbar-default.affix .navbar-nav li a {color:white;}
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav li a:hover, .navbar-default .navbar-nav li a:focus{background:none; color: #00996B;}
-
 .navbar-default a.navbar-brand{color:#fff; font-size:30px; font-weight:600;}
 .navbar-default a.navbar-brand:hover{color:#78C2AD;}
 .navbar-default a.navbar-brand.dark{color:#0B5679;}
@@ -78,7 +69,6 @@ section{padding:75px 0 100px;}
 /*-------------- Top Banner --------------*/
 .banner-sec{height:100%;
     background:url(../img/main_img_3.png) no-repeat;
-    background-color: rgb(250, 250, 250);
     background-size:cover;}
 .banner-sec .jumbotron{background:none;text-align:center; color:black; padding: 50px; padding-top: 20%}
 .banner-sec .jumbotron p{font-size:19px;}

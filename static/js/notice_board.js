@@ -54,7 +54,7 @@ function closeLoadingWithMask() {
 }
 
 function getHasProductList(){
-    var userId = $(".has-product-container").value();
+    var userId = $(".has-product-container").val;
     var container = $(".has-product-container");
     var apiKey = "3d5e3cfb86a24de7a5b6"
     $.ajax({
@@ -65,9 +65,14 @@ function getHasProductList(){
             console.log("성공했엉");
             var serviceKey = response.urlInfo.serviceKey
             result = JSON.parse(response.hasProductList)
-            callRecallList(serviceKey, result);
-            callFakeList(serviceKey, result);
-            callExpiredDate(result);
+            console.log(result.length)
+            console.log(result.length !== 0)
+            if (result.length !== 0) {
+                callRecallList(serviceKey, result);
+                callFakeList(serviceKey, result);
+                callExpiredDate(result);
+            }
+
         },
         error: function(request, status, error){
             console.log("에러났엉");
