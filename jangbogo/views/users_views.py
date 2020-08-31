@@ -92,19 +92,26 @@ def userUpdate(request, user_id):
                 return redirect('users:userInfo', user.id)
         else:
             error_message = '비밀번호가 틀립니다.'
+            return render(request, 'users/mypage.html', {'user': user, 'error_message': error_message})
     else:
         pass
-    return render(request, 'users/mypage.html', {'user':user})
+    return render(request, 'users/mypage.html', {'user':user })
 
 def userDelete(request, user_id):
     user = User.objects.get(id=user_id)
     if request.method == 'POST':
-        if user.user_password == request.POST.get("current_password2"):
-            user.delete()
-            logOut()
+        user_password_delete = request.POST.get('current_password2')
+        user_repassword_delete = request.POST.get('current_repassword')
+        if user.user_password == user_password_delete:
+            if user_password_delete != user_repassword_delete:
+                error_message_delete = '비밀번호가 틀립니다.'
+            else:
+                user.delete()
+                request.session.clear()
+                return redirect('http://localhost:8000/')
         else:
-            error_message = '비밀번호가 틀립니다.'
-            return redirect('users:userInfo', user.id)
+            error_message_delete = '비밀번호가 틀립니다.'
+        return render(request, 'users/mypage.html', {'user': user, 'error_message_delete': error_message_delete})
 
 
 def hasProduct(request, user_id):
