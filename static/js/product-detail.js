@@ -27,6 +27,7 @@ $("form").submit(function(event){
     event.preventDefault();
     var user_id = $("input[type=hidden]").val();
    if (confirm('보유/구매목록에 추가하시겠습니까?')) {
+   console.log($("#search_expire_period").attr("value"))
         // Save it!
         $.ajax({
             async : true,
@@ -39,12 +40,12 @@ $("form").submit(function(event){
                 }
             },
             data: {
-                "prdReportNo" : $("#search_prdlst_cd").text(),
+                "prdReportNo" : $("#search_prdlst_cd").attr("value"),
                 "pur_name" : $("#search_name").text(),
                 "pur_company" : $("#search_company_nm").text(),
                 "pur_jejodate": $("#jejo_date").val(),
                 "pur_date": $("#pur_date").val(),
-                "pur_expire_period": $("#search_expire_period").text(),
+                "pur_expire_period": $("#search_expire_period").attr("value"),
             },
             success : function(result) {
                 alert(result.message);

@@ -21,10 +21,21 @@
   <component name="ChangeListManager">
     <list default="true" id="4afb98f0-92e1-47fd-b6fe-93f1e3a3bf66" name="Default Changelist" comment="Completed&#10;&#10;Change background color f2f2f2&#10;Add menu 'search' to go home&#10;Change error massage in login menu&#10;---&#10;&#10;Under udadating&#10;product detail menu&#10;---">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jangbogo_project/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo_project/templates/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jangbogo_project/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo_project/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jangbogo/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jangbogo/templates/jangbogo/notice_board.html" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/templates/jangbogo/notice_board.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jangbogo/templates/jangbogo/product_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/templates/jangbogo/product_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jangbogo/templates/jangbogo/product_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/templates/jangbogo/product_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jangbogo/templates/users/mypage.html" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/templates/users/mypage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jangbogo/urls/jangbogo_urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/urls/jangbogo_urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jangbogo/views/jangbogo_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/views/jangbogo_views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jangbogo/views/users_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/jangbogo/views/users_views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/custom.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/product-list-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/product-list-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/shards-dashboards.1.1.0.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/shards-dashboards.1.1.0.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/notice_board.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/notice_board.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/product-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/product-detail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/product-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/product-list.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,19 +88,19 @@
     <property name="settings.editor.selected.configurable" value="stylesheet.code.style.group" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\python-Django\JangbogoProject\static\css" />
-      <recent name="C:\python-Django\JangbogoProject\jangbogo\static\img" />
-      <recent name="C:\python-Django\JangbogoProject\jangbogo\static\css" />
-      <recent name="C:\python-Django\JangbogoProject\jangbogo\static" />
-      <recent name="C:\python-Django\JangbogoProject" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\python-Django\JangbogoProject\static\img" />
       <recent name="C:\python-Django\JangbogoProject\static\js" />
       <recent name="C:\python-Django\JangbogoProject\static\css" />
       <recent name="C:\python-Django\JangbogoProject\static" />
       <recent name="C:\python-Django\JangbogoProject\jangbogo\static\js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\python-Django\JangbogoProject\static\css" />
+      <recent name="C:\python-Django\JangbogoProject\jangbogo\static\img" />
+      <recent name="C:\python-Django\JangbogoProject\jangbogo\static\css" />
+      <recent name="C:\python-Django\JangbogoProject\jangbogo\static" />
+      <recent name="C:\python-Django\JangbogoProject" />
     </key>
   </component>
   <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
@@ -214,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598850128490</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="modify UI_200831">
+      <created>1598852926086</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1598852926086</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,7 +270,8 @@
     <MESSAGE value="db.sqlite3 error fix _200824" />
     <MESSAGE value="workspace error fix _200824" />
     <MESSAGE value="modify errors_200831" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify errors_200831" />
+    <MESSAGE value="modify UI_200831" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify UI_200831" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="198" key="#Inspections" timestamp="1597311612768">
@@ -283,9 +302,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1597312905987" />
-    <state x="442" y="203" key="Vcs.Push.Dialog.v2" timestamp="1598260738636">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="409" y="185" key="Vcs.Push.Dialog.v2" timestamp="1598852930495">
+      <screen x="0" y="0" width="1422" height="760" />
     </state>
+    <state x="409" y="185" key="Vcs.Push.Dialog.v2/0.0.1422.760@0.0.1422.760" timestamp="1598852930495" />
     <state x="442" y="203" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1598260738636" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1598256347417" />
     <state x="92" y="92" width="1736" height="856" key="dock-window-1" timestamp="1597296101310">
@@ -300,9 +320,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597308320226" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1598235074705">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="461" y="164" width="672" height="496" key="search.everywhere.popup" timestamp="1598883177392">
+      <screen x="0" y="0" width="1422" height="760" />
     </state>
+    <state x="461" y="164" width="672" height="496" key="search.everywhere.popup/0.0.1422.760@0.0.1422.760" timestamp="1598883177392" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598235074705" />
   </component>
 </project>
