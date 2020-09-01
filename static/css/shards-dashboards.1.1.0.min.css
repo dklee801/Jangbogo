@@ -339,6 +339,9 @@ pre {
 .table-dark.table-hover tbody tr:hover {
     background-color: rgba(255, 255, 255, 0.075);
 }
+input[type=password] {
+        font-family: 'Helvetica Neue', Arial, sans-serif
+}
 .form-control {
     height: auto;
     padding: 0.4375rem 0.75rem;
@@ -4812,12 +4815,9 @@ html .ql-toolbar .ql-picker .ql-picker-options {
     color: #818ea3;
 }
 
-#decorate-div{
-    margin-top: 60px;
-}
-
 .h-100{
     font-size: 15px;
+    margin-bottom: 60px;
 }
 
 .mypage-container{

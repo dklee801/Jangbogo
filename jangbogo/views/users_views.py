@@ -68,8 +68,6 @@ def signUp(request):
     else:
         return render(request, 'home.html')
 
-
-
 def loginRegister(request):
     return render(request, 'users/login_register.html')
 
@@ -130,9 +128,7 @@ def addProduct(request, user_id):
 
     try:
         user = get_object_or_404(User, pk=user_id)
-
         pur_name = request.POST["pur_name"]
-       # pur_jejo_num =
         pur_company = request.POST["pur_company"]
         pur_date = request.POST["pur_date"]
         pur_jejodate = request.POST["pur_jejodate"]
@@ -140,27 +136,32 @@ def addProduct(request, user_id):
         pur_jejo_num = request.POST["prdReportNo"]
 
         # 유통기한 조회 시, 제조인 경우 별도로 처리하기 !!
-        if "년" in pur_expire_period:
+        if "-" in pur_expire_period:
+            expire_period = pur_expire_period
+            pur_or_jejo = "pur"
+        elif "년" in pur_expire_period:
             print("년")
             expire_period = "".join(re.findall('\d+', pur_expire_period))
             expire_period = int(expire_period) * 12
-
-            print(expire_period)
+            pur_or_jejo = "pur"
         elif "제조" in pur_expire_period:
             print("제조로부터")
             expire_period = "".join(re.findall('\d+', pur_expire_period))
+            pur_or_jejo = "jejo"
         else:
-            print("일반")
+            print("구매일로부터")
             expire_period = "".join(re.findall('\d+', pur_expire_period))
+            pur_or_jejo = "pur"
 
-        purchaseObj = Purchase.objects.create (
+        purchaseObj = Purchase.objects.create(
             pur_user=user,
             pur_name=pur_name,
             pur_company=pur_company,
             pur_date=pur_date,
             pur_jejodate=pur_jejodate,
             pur_expire_period=expire_period,
-            pur_jejo_num=pur_jejo_num
+            pur_jejo_num=pur_jejo_num,
+            pur_or_jejo=pur_or_jejo
         )
 
 

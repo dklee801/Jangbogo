@@ -19,7 +19,8 @@ class Purchase(models.Model):
     pur_company = models.CharField('제조업체명', max_length=40)
     pur_date = models.DateTimeField('구매일자', default=datetime.datetime.now())
     pur_jejodate = models.DateTimeField('제조일자', default=datetime.datetime.now())
-    pur_expire_period = models.IntegerField('유통기한', default=12)
+    pur_expire_period = models.CharField('유통기한', max_length=10, default=12)
+    pur_or_jejo = models.CharField('유통기한 기준', max_length=10, default="pur")
 
     def __str__(self):
         return self.pur_name

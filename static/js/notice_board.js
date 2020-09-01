@@ -1,20 +1,25 @@
 const DAY = 1000 * 60 * 60 * 24;
 function getExpiredPeriod(dt, expiredDt){
-    var pYear =  new Date(dt).getFullYear();
-    var months = new Date(dt).getMonth() + expiredDt;
-    var month = months % 12;
-    pYear = pYear + (months / 12);
-    var date = new Date(dt).getDate();
-    var expireDt = new Date();
-    expireDt.setFullYear(pYear);
-    expireDt.setMonth(month);
-    expireDt.setDate(date);
+    if (String(expiredDt).length <= 2){
+        expiredDt = Number(expiredDt)
+        var pYear =  new Date(dt).getFullYear();
+        var months = new Date(dt).getMonth() + expiredDt;
+        var month = months % 12;
+        pYear = pYear + (months / 12);
+        var date = new Date(dt).getDate();
+        var expireDt = new Date();
+        expireDt.setFullYear(pYear);
+        expireDt.setMonth(month);
+        expireDt.setDate(date);
+    } else {
+        expiredDt = String(expiredDt).split("-")
+        var expireDt = new Date(expiredDt[0], expiredDt[1], expiredDt[2]);
+        console.log(expireDt)
+    }
     var distance = expireDt - new Date();
     var dis_day = Math.floor(distance / DAY);
-
     return dis_day
 }
-
 
 function LoadingWithMask() {
     //화면의 높이와 너비를 구합니다.
@@ -23,7 +28,7 @@ function LoadingWithMask() {
     var gif = '/static/img/loading_icon.gif'
 
     //화면에 출력할 마스크를 설정해줍니다.
-    var mask       ="<div id='mask' style='position:absolute; z-index:9000; background-color:#000000; display:flex; align-items: center; justify-content: center;'></div>";
+    var mask       ="<div id='mask' style='position:absolute; z-index:9000; background-color:#000000; display:flex; align-items: center; justify-content: center; z-index: 0;'></div>";
     var loadingImg ='';
 
     loadingImg +="<div id='loadingImg'>";
@@ -65,14 +70,11 @@ function getHasProductList(){
             console.log("성공했엉");
             var serviceKey = response.urlInfo.serviceKey
             result = JSON.parse(response.hasProductList)
-            console.log(result.length)
-            console.log(result.length !== 0)
             if (result.length !== 0) {
                 callRecallList(serviceKey, result);
                 callFakeList(serviceKey, result);
                 callExpiredDate(result);
             }
-
         },
         error: function(request, status, error){
             console.log("에러났엉");
@@ -91,9 +93,12 @@ function callExpiredDate(result){
         var purDt = item.fields.pur_date;
         var purJejoDt = item.fields.pur_jejodate;
         var expirePeriod = item.fields.pur_expire_period;
-
-        var dt = purJejoDt || purDt;
-        var expiredPeriod = getExpiredPeriod(dt, expirePeriod);
+        var pur_or_jejo = item.fields.pur_or_jejo;
+        if (pur_or_jejo !== "pur"){
+            var expiredPeriod = getExpiredPeriod(purJejoDt, expirePeriod);
+        } else {
+            var expiredPeriod = getExpiredPeriod(purDt, expirePeriod);
+        }
 
         if (expiredPeriod < 31) {
             var tr = $("<tr></tr>") // <tr></tr>
@@ -168,19 +173,19 @@ function callRecallList(serviceKey, result){
         noResult = true;
             $.each(response.I0490.row, function(idx,item) {
                 $.each(result, function(idx, hasProductItem){
-                    var pk = hasProductItem.pk;
+                    //var pk = hasProductItem.pk;
                     var purName = hasProductItem.fields.pur_name;
                     var purCompany = hasProductItem.fields.pur_company;
 
                     if (item["PRDTNM"] === purName && item["BSSHNM"].trim() === (purCompany.trim())){
                         var tr = $("<tr></tr>") // <tr></tr>
-                        var pkTd =  pk
+                        //var pkTd =  pk
                         var productTd = $("<td></td>").text(item["PRDTNM"]) // 제품명
                         var entrpsTd = $("<td></td>").text(item["BSSHNM"]) // 업체명
                         var mnftDtTd = $("<td></td>").text(item["CRET_DTM"]) // 등록일
                         var rclcmtTd = $("<td></td>").text(item["RTRVLPRVNS"]) // 회수사유
 
-                        tr.append(pkTd)
+                        //tr.append(pkTd)
                         tr.append(productTd)
                         tr.append(entrpsTd)
                         tr.append(mnftDtTd)

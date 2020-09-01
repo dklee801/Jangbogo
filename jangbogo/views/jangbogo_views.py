@@ -77,24 +77,8 @@ def saveRecallDetail(request):
     }
     return HttpResponse(json.dumps(context), content_type="application/json")
 
-def productListAll(request):
-    return true
-
 def productListSearch(request):
     search_key = request.POST.get('keyword', '')
     parameters = getServiceKey()
     return render(request, 'jangbogo/product_list.html', {'search_key': search_key, 'parameters': parameters})
-
-
-def productListDetail(request, product_id):
-    return true
-
-def falseListAll(request):
-    return true
-
-def falseListSearch(request, false_product_nm):
-    return true
-
-def falseListDetail(request, false_product_id):
-    return true
 

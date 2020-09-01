@@ -311,11 +311,24 @@ function call_recall(){
             $.each(result.I0490.row, function(idx,item) {
                 if (item["PRDTNM"].includes(search_key)){
                     noResult = false;
+                    /// 유통기한 date 처리
+                    var expire_period=item["DISTBTMLMT"].replace(/[^0-9]/g,'');
+                    console.log(expire_period)
+                    var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi;
+                    if (expire_period.length > 2){
+                        expire_period = item["DISTBTMLMT"].split(regExp)
+                        var year = expire_period[0]
+                        var month = expire_period[1].length == 2 ? expire_period[1] : '0' + expire_period[1]
+                        var day = expire_period[2].length == 2 ? expire_period[2] : '0' + expire_period[2]
+                        console.log(year, month, day)
+                        expire_period = year + "-" + month + "-" + day
+                    }
+
                     var tr = $("<tr></tr>") // <tr></tr>
                     var productTd = $("<td></td>").text(item["PRDTNM"]) // 제품명
                     var entrpsTd = $("<td></td>").text(item["BSSHNM"]) // 업체명
                     var productTypeTd =  $("<td></td>").text(item["PRDLST_CD_NM"]) // 유형
-                    var expiredTd =  $("<td></td>").text(item["DISTBTMLMT"]) // 유통기한
+                    var expiredTd =  $("<td></td>").text(expire_period) // 유통기한
                     var cretDtTd =  $("<td></td>").text(item["CRET_DTM"]) // 등록일
                     var rtrTd =  $("<td></td>").text(item["RTRVLPRVNS"]) // 회수사유
                     var rtrRtrTd =  $("<td></td>").text(item["RTRVLPLANDOC_RTRVLMTHD"]) // 회수방법
@@ -360,7 +373,7 @@ function call_recall(){
                                     "frmlcunit": item["FRMLCUNIT"],
                                     "mnfdt": item["MNFDT"],
                                     "rtrvlplandoc_rtrvlmthd": item["RTRVLPLANDOC_RTRVLMTHD"],
-                                    "distbtmlmt": item["DISTBTMLMT"],
+                                    "distbtmlmt": expire_period,
                                     "prdlst_type": item["PRDLST_TYPE"],
                                     "img_file_path": item["IMG_FILE_PATH"],
                                     "prdlst_cd": item["PRDLST_CD"],
