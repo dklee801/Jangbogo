@@ -119,8 +119,8 @@ def hasProduct(request, user_id):
     hasProductList = user.purchase_set.all()
     urlInfo = getServiceKey()
     context = {
-        'hasProductList' : serializers.serialize('json', hasProductList),
-        'urlInfo' : urlInfo
+        'hasProductList': serializers.serialize('json', hasProductList),
+        'urlInfo': urlInfo
     }
     return HttpResponse(json.dumps(context), content_type="application/json")
 

@@ -9,11 +9,12 @@ body {
 .card {
     padding: 3px;
 }
-.card-small { float: left; width: 25%; margin:0.666%; height: 300px; overflow:auto}
-.card-medium { float: left; width: 46%; margin:0.666%; height: 300px; overflow:auto}
-.card-big{height: 500px; overflow:auto;}
+.card-small { float: left; width: 25%; margin:0.666%; height: 500px; overflow:auto}
+.card-medium { float: left; width: 46%; margin:0.666%; height: 500px; overflow:auto}
+.card-big{height: 600px; overflow:auto;}
 .has-product-container{
-    margin-top: 30px;
+    margin-top: 350px;
+    padding-top: 200px;
     margin-bottom: 10px;
 }
 
@@ -36,4 +37,20 @@ body {
     width: 80px;
     height: 40px;
     margin-right: 20px;
+}
+
+/*.expBtn{
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: yellow;
+}*/
+
+.x_img{
+    width: 20px;
+    height: 20px;
+}
+
+th {
+    text-align: center;
 }

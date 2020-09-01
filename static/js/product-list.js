@@ -442,7 +442,7 @@ function call_fake(){
                 var upcheTd = $("<td></td>").text($(this).find("ENTRPS").text()) // <td></td>
                 var fakenameTd = $("<td></td>").text($(this).find("DSPS_CMMND").text()) //처분명
                 var fakedateTd = $("<td></td>").text($(this).find("DSPS_DT").text()) //행정처분일자
-                var fakedetailTd = $("<td></td>").text($(this).find("FOUND_CN").text()) //광고(적발)내용
+                var fakedetailTd = $("<td></td>").css("max-width", "50px").text($(this).find("FOUND_CN").text()) //광고(적발)내용
                 var fakelawTd = $("<td></td>").text($(this).find("VIOLT").text()) //위반법령
 
                 tr.append(productTd)

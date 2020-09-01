@@ -89,43 +89,45 @@
     <!-- Default Dark Table -->
 </div>
     <div class="has-product-container container" url="{% url 'users:hasProduct' request.session.user %}" noticeboard_id="{{request.session.user}}">
-        <div class="col">
-            <div class="card card-big overflow-hidden mb-4" >
-                <div class="card-header border-bottom">
-                    <h4 class="m-0" align="center">보유/구매 제품 목록</h4>
-                    <div class="add-btn-container">
-                        <input id="add-btn" type="button" onClick="location.href='{% url 'jangbogo:productListSearch' %}'"value="추 가" />
-                    </div>
+        <div class="card card-big overflow-hidden mb-4" >
+            <div class="card-header border-bottom">
+                <h4 class="m-0" align="center">보유/구매 제품 목록</h4>
+                <div class="add-btn-container">
+                    <input id="add-btn" type="button" onClick="location.href='{% url 'jangbogo:productListSearch' %}'"value="추 가" />
                 </div>
-                <div class="card-body p-0 pb-3 text-center">
-                    <table class="table mb-0">
-                        <thead class="bg-light">
-                        <tr>
-                            <!--<th scope="col" class="border-bottom-0">번호</th>-->
-                            <th scope="col" class="border-bottom-0">제품명</th>
-                            <th scope="col" class="border-bottom-0">업체명</th>
-                            <th scope="col" class="border-bottom-0">구매일자</th>
-                            <th scope="col" class="border-bottom-0">제조일자</th>
-                            <th scope="col" class="border-bottom-0">유통기한</th>
-                            <th scope="col" class="border-bottom-0">삭제</th>
-                        </tr>
-                        </thead>
-                        {% for product in hasProductList%}
-                        <tbody>
-                        <tr class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
-                            <!--<td>{{product.id}}</td>-->
-                            <td>{{product.pur_name}}</td>
-                            <td>{{product.pur_company}}</td>
-                            <td>{{product.pur_date|date:'Y-m-d'}}</td>
-                            <td>{{product.pur_jejodate|date:'Y-m-d'}}</td>
-                            <td>{{product.pur_expire_period}}</td>
-                            <td><a href="{% url 'users:deleteProduct' request.session.user product.id %}" class="btn btn-danger btn-sm">삭제</a>
-                            </td>
-                        </tr>
-                        </tbody>
-                        {% endfor %}
-                    </table>
-                </div>
+            </div>
+            <div class="card-body p-0 pb-3 text-center">
+                <table class="table mb-0">
+                    <thead class="bg-light">
+                    <tr>
+                        <th scope="col" class="border-bottom-0">위해</th>
+                        <th scope="col" class="border-bottom-0">과대</th>
+                        <th scope="col" class="border-bottom-0">기한도래</th>
+                        <th scope="col" class="border-bottom-0">제품명</th>
+                        <th scope="col" class="border-bottom-0">업체명</th>
+                        <th scope="col" class="border-bottom-0">구매일자</th>
+                        <th scope="col" class="border-bottom-0">제조일자</th>
+                        <th scope="col" class="border-bottom-0">유통기한</th>
+                        <th scope="col" class="border-bottom-0">삭제</th>
+                    </tr>
+                    </thead>
+                    {% for product in hasProductList%}
+                    <tbody>
+                    <tr class="{{product.id}} {% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
+                        <td class="recall_icons"></td>
+                        <td class="false_icons"></td>
+                        <td class="expire_icons"></td>
+                        <td>{{product.pur_name}}</td>
+                        <td>{{product.pur_company}}</td>
+                        <td>{{product.pur_date|date:'Y-m-d'}}</td>
+                        <td>{{product.pur_jejodate|date:'Y-m-d'}}</td>
+                        <td>{{product.pur_expire_period}}</td>
+                        <td><a href="{% url 'users:deleteProduct' request.session.user product.id %}" class="btn btn-danger btn-sm">삭제</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
             </div>
         </div>
     <!-- End Default Dark Table -->

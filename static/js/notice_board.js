@@ -88,6 +88,7 @@ function callExpiredDate(result){
     // 유통기한 계산
     $("#expired-tbody").empty();
     $.each(result, function(idx, item){
+        var purId = item.pk
         var purName = item.fields.pur_name;
         var purCompany = item.fields.pur_company;
         var purDt = item.fields.pur_date;
@@ -111,6 +112,10 @@ function callExpiredDate(result){
             tr.append(expiredPeriodTd)
 
             $("#expired-tbody").append(tr)
+
+            // 구매/보유 목록에 표시
+            expBtn = $("<img class='x_img'/>").attr("src", "/static/img/x_icon.png");
+            $("."+purId +"> .expire_icons").append(expBtn)
         }
     });
 }
@@ -119,6 +124,7 @@ function callExpiredDate(result){
 function callFakeList(serviceKey, result){
     $("#expired-tbody").empty();
     $.each(result, function(idx, item){
+        var purId = item.pk;
         var purName = item.fields.pur_name;
         var purCompany = item.fields.pur_company;
         var purDt = item.fields.pur_date;
@@ -146,6 +152,10 @@ function callFakeList(serviceKey, result){
                     tr.append(dspsDtTd)
 
                     $("#false-ad-tbody").append(tr)
+
+                    // 구매/보유 목록에 표시
+                    falseBtn = $("<img class='x_img'/>").attr("src", "/static/img/x_icon.png");
+                    $("."+purId +"> .false_icons").append(falseBtn)
                 }
 
             },
@@ -179,7 +189,7 @@ function callRecallList(serviceKey, result){
 
                     if (item["PRDTNM"] === purName && item["BSSHNM"].trim() === (purCompany.trim())){
                         var tr = $("<tr></tr>") // <tr></tr>
-                        //var pkTd =  pk
+                        var purId =  hasProductItem.pk;
                         var productTd = $("<td></td>").text(item["PRDTNM"]) // 제품명
                         var entrpsTd = $("<td></td>").text(item["BSSHNM"]) // 업체명
                         var mnftDtTd = $("<td></td>").text(item["CRET_DTM"]) // 등록일
@@ -193,6 +203,10 @@ function callRecallList(serviceKey, result){
 
                         $("#recall-tbody").append(tr)
                         noResult = false;
+
+                         // 구매/보유 목록에 표시
+                        recallBtn = $("<img class='x_img'/>").attr("src", "/static/img/x_icon.png");
+                        $("."+purId +"> .recall_icons").append(recallBtn)
                     }
                 })
             })
