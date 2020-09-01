@@ -6,7 +6,7 @@
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/css/custom.css" rel="stylesheet">
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="/static/css/shards-dashboards.1.1.0.min.css">
-    <link href="/static/css/notice_board.css" rel="stylesheet">
+    <link href="/static/css/notice-board.css" rel="stylesheet">
 </head>
 <body class="h-100">
 {% include "header.html" %}
@@ -122,7 +122,7 @@
                         <td>{{product.pur_date|date:'Y-m-d'}}</td>
                         <td>{{product.pur_jejodate|date:'Y-m-d'}}</td>
                         <td>{{product.pur_expire_period}}</td>
-                        <td><a href="{% url 'users:deleteProduct' request.session.user product.id %}" class="btn btn-danger btn-sm">삭제</a>
+                        <td><a href="{% url 'users:deleteProduct' request.session.user product.id %}" class="btn btn-delete btn-sm">삭제</a>
                         </td>
                     </tr>
                     </tbody>

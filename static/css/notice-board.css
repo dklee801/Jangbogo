@@ -39,17 +39,32 @@ body {
     margin-right: 20px;
 }
 
-/*.expBtn{
+.recallBtn{
     border: none;
     border-radius: 10px;
-    padding: 10px;
-    background-color: yellow;
-}*/
-
-.x_img{
-    width: 20px;
-    height: 20px;
+    padding: 8px;
+    background-color: #cc3333;
 }
+.falseBtn{
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
+    background-color: #66ff33;
+}
+.expBtn{
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
+    background-color: #ff9933;
+}
+
+.btn-delete {
+    background-color: #DCDCDC;
+    color: black;
+    font-weight: bold;
+}
+
+
 
 th {
     text-align: center;

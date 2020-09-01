@@ -114,7 +114,7 @@ function callExpiredDate(result){
             $("#expired-tbody").append(tr)
 
             // 구매/보유 목록에 표시
-            expBtn = $("<img class='x_img'/>").attr("src", "/static/img/x_icon.png");
+            expBtn = $("<button class='expBtn'></button>")
             $("."+purId +"> .expire_icons").append(expBtn)
         }
     });
@@ -154,7 +154,7 @@ function callFakeList(serviceKey, result){
                     $("#false-ad-tbody").append(tr)
 
                     // 구매/보유 목록에 표시
-                    falseBtn = $("<img class='x_img'/>").attr("src", "/static/img/x_icon.png");
+                    falseBtn = $("<button class='falseBtn'></button>")
                     $("."+purId +"> .false_icons").append(falseBtn)
                 }
 
@@ -203,7 +203,7 @@ function callRecallList(serviceKey, result){
                         noResult = false;
 
                          // 구매/보유 목록에 표시
-                        recallBtn = $("<img class='x_img'/>").attr("src", "/static/img/x_icon.png");
+                        recallBtn = $("<button class='recallBtn'></button>")
                         $("."+purId +"> .recall_icons").append(recallBtn)
                     }
                 })
