@@ -183,7 +183,6 @@ function callRecallList(serviceKey, result){
         noResult = true;
             $.each(response.I0490.row, function(idx,item) {
                 $.each(result, function(idx, hasProductItem){
-                    //var pk = hasProductItem.pk;
                     var purName = hasProductItem.fields.pur_name;
                     var purCompany = hasProductItem.fields.pur_company;
 
@@ -195,7 +194,6 @@ function callRecallList(serviceKey, result){
                         var mnftDtTd = $("<td></td>").text(item["CRET_DTM"]) // 등록일
                         var rclcmtTd = $("<td></td>").text(item["RTRVLPRVNS"]) // 회수사유
 
-                        //tr.append(pkTd)
                         tr.append(productTd)
                         tr.append(entrpsTd)
                         tr.append(mnftDtTd)

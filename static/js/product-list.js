@@ -127,8 +127,6 @@ function call_jepum(){
             var upche = $("<td></td>").text(item.BSSH_NM) //업체명
             var yuhyung = $("<td></td>").text(item.PRDLST_DCNM) //유형
             var yutong = $("<td></td>").text(item.POG_DAYCNT) // 유통기한
-            //var highcalorie = $("<td></td>").text(item.HIENG_LNTRT_DVS_NM) //고열량저영양식품여부
-            //var children = $("<td></td>").text(item.CHILD_CRTFC_YN) //어린이기호식품품질인증여부
             var buttonTd = $("<td></td>") //추가하기 버튼
             var jejoTd = $("<td></td>") // 제조일자
             var purTd = $("<td></td>") // 구매일자
@@ -181,8 +179,6 @@ function call_jepum(){
             tr.append(upche)
             tr.append(yuhyung)
             tr.append(yutong)
-            //tr.append(highcalorie)
-            //tr.append(children)
             tr.append(jejoTd)
             tr.append(purTd)
             tr.append(buttonTd)
@@ -193,7 +189,7 @@ function call_jepum(){
         call_youngyangjepum(noResultJepum);
         },
         error : function(error) {
-            alert("call_jepum 실패")
+           console.log("call_jepum 실패")
         }
     })
 }
@@ -226,8 +222,6 @@ function call_youngyangjepum(noResultJepum){
                     var upche = $("<td></td>").text(item.BSSH_NM) //업체명
                     var yuhyung = $("<td></td>").text(item.PRDLST_DCNM) //유형
                     var yutong = $("<td></td>").text(item.POG_DAYCNT) // 유통기한
-                    //var highcalorie = $("<td></td>").text(item.HIENG_LNTRT_DVS_NM) //고열량저영양식품여부
-                    //var children = $("<td></td>").text(item.CHILD_CRTFC_YN) //어린이기호식품품질인증여부
                     var buttonTd = $("<td></td>") //추가하기 버튼
                     var jejoTd = $("<td></td>") // 제조일자
                     var purTd = $("<td></td>") // 구매일자
@@ -280,20 +274,15 @@ function call_youngyangjepum(noResultJepum){
                     tr.append(upche)
                     tr.append(yuhyung)
                     tr.append(yutong)
-                    //tr.append(highcalorie)
-                    //tr.append(children)
                     tr.append(jejoTd)
                     tr.append(purTd)
                     tr.append(buttonTd)
-
                     $("#tbody_jepum").append(tr)
-
-
                 })
             }
         },
         error : function(error) {
-            alert(" call_youngyangjepum 실패")
+            console.log("call_youngyangjepum 실패")
         }
     })
 }
@@ -442,7 +431,7 @@ function call_fake(){
                 var upcheTd = $("<td></td>").text($(this).find("ENTRPS").text()) // <td></td>
                 var fakenameTd = $("<td></td>").text($(this).find("DSPS_CMMND").text()) //처분명
                 var fakedateTd = $("<td></td>").text($(this).find("DSPS_DT").text()) //행정처분일자
-                var fakedetailTd = $("<td></td>").css("max-width", "50px").text($(this).find("FOUND_CN").text()) //광고(적발)내용
+                var fakedetailTd = $("<td></td>").text($(this).find("FOUND_CN").text()) //광고(적발)내용
                 var fakelawTd = $("<td></td>").text($(this).find("VIOLT").text()) //위반법령
 
                 tr.append(productTd)
@@ -451,9 +440,7 @@ function call_fake(){
                 tr.append(fakedateTd)
                 tr.append(fakedetailTd)
                 tr.append(fakelawTd)
-
                 $("#tbody_fake").append(tr)
-
             })
         },
         error : function(error) {
@@ -474,7 +461,6 @@ function init() {
         call_recall();
         call_fake();
     }
-
     $(".tab_menu_btn2").on("click", loadingImgHandler);
 }
 
