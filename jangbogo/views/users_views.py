@@ -59,14 +59,14 @@ def signUp(request):
                 request.session['user'] = user.id
                 request.session['username'] = user.user_name
                 request.session['useremail'] = user.user_email
-                return render(request, 'home.html')
+                return render(request, 'index.html')
 
             else:
                 error_message = '이미 존재하는 아이디 입니다.'
                 return render(request, 'users/login_register.html', {'signup_error_message': error_message})
 
     else:
-        return render(request, 'home.html')
+        return render(request, 'index.html')
 
 def loginRegister(request):
     return render(request, 'users/login_register.html')
